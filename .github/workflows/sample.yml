@@ -20,7 +20,7 @@ jobs:
           chown builder -R ..
           chown builder -R /tmp
       - name: Build llvm
-        run: su builder -c "yes '' | makepkg --noconfirm --nocheck -sc"
+        run: su builder -c "yes '' | MAKEFLAGS=\"-j $(nproc)\" makepkg --noconfirm --nocheck -sc"
       - uses: actions/upload-artifact@v3
         with:
           name: llvm-git
