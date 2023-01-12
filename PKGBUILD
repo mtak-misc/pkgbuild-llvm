@@ -16,7 +16,7 @@
 
 
 pkgname=('llvm-git' 'llvm-libs-git' 'llvm-ocaml-git')
-pkgver=15.0.6
+pkgver=15.0.7
 pkgrel=1
 arch=('x86_64')
 url="https://llvm.org/"
