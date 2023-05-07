@@ -15,7 +15,6 @@ jobs:
         run: |
           pacman -Syu --noconfirm base-devel sudo git
           useradd builder -m -G wheel && echo "builder ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
-          curl -L https://aur.archlinux.org/cgit/aur.git/plain/PKGBUILD?h=llvm-git -o PKGBUILD
           git clone https://aur.archlinux.org/llvm-git.git
           sed -i 's/llvm-project.git/llvm-project.git#tag=llvmorg-16.0.3/g' llvm-git/PKGBUILD
           chown builder -R ..
