@@ -23,7 +23,7 @@ jobs:
         run: |
           cd llvm-git
           su builder -c "yes '' | MAKEFLAGS=\"-j $(nproc)\" makepkg --noconfirm --nocheck -sc"
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v4
         with:
           name: llvm-git
           path: ${{ env.PKGDEST }}/*.pkg.tar.zst
