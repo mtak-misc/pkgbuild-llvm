@@ -3,8 +3,8 @@ name: build-action
 on:
   workflow_dispatch:
 
-env:
-  PKGDEST: "/tmp/pkgbuild-llvm-git"
+#env:
+#  PKGDEST: "/tmp/pkgbuild-llvm-git"
 
 jobs:
   build:
@@ -94,5 +94,5 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: llvm-git
-          path: ${{ env.PKGDEST }}/*.pkg.tar.zst
+          path: ${{ github.workspace }}/llvm-git/*.pkg.tar.zst
         
