@@ -89,7 +89,7 @@ jobs:
         uses: docker://archlinux:latest
         with:
           entrypoint: '/bin/sh'
-          args: ./build.sh ${{ env.USERID }}
+          args: ./build.sh ${{ env.USERID }} > log.txt
       - name: Upload packages
         uses: actions/upload-artifact@v4
         with:
