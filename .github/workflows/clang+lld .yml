@@ -49,8 +49,8 @@ jobs:
         with:
           entrypoint: '/bin/sh'
           args: ./build-clang_lld.sh ${{ env.USERID }}
-#      - name: Upload packages
-#        uses: actions/upload-artifact@v4
-#        with:
-#          name: llvm-git
-#          path: ${{ github.workspace }}/llvm-git/*.pkg.tar.zst
+      - name: Upload packages
+        uses: actions/upload-artifact@v4
+        with:
+          name: llvm
+          path: ${{ github.workspace }}/*.pkg.tar.zst
