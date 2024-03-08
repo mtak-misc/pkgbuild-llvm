@@ -12,7 +12,7 @@ rm -f *debug*.zst
 pacman -U --noconfirm compiler-rt-*.zst
 cd ../clang ; su builder -c "yes '' | MAKEFLAGS=\"-j $(nproc)\" makepkg --noconfirm --nocheck --skippgpcheck -sc"
 rm -f *debug*.zst
-pacman -U --noconfirm clangg-*.zst
+pacman -U --noconfirm clang-*.zst
 cd ../lld ; su builder -c "yes '' | MAKEFLAGS=\"-j $(nproc)\" makepkg --noconfirm --nocheck --skippgpcheck -sc"
 rm -f *debug*.zst
 cd ..
