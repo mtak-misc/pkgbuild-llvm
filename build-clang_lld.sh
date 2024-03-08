@@ -8,7 +8,7 @@ useradd builder -u ${USERID} -m -G wheel && echo "builder ALL=(ALL) NOPASSWD: AL
 #chown builder -R ..
 #chown builder -R /tmp
 cd ./compiler-rt ; su builder -c "yes '' | MAKEFLAGS=\"-j $(nproc)\" makepkg --noconfirm --nocheck --skippgpcheck -sc"
-rm *debug*.zst
+rm -f *debug*.zst
 pacman -U --noconfirm compiler-rt-*.zst
 cd ../clang ; su builder -c "yes '' | MAKEFLAGS=\"-j $(nproc)\" makepkg --noconfirm --nocheck --skippgpcheck -sc"
 rm -f *debug*.zst
