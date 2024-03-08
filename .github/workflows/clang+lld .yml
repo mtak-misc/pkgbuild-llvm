@@ -16,6 +16,7 @@ jobs:
       - name: Prepare for makepkg
         run: |
           gh run download 8200844359
+          ls -lh
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 #      - name: Build llvm
