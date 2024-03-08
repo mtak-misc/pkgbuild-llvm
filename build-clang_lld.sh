@@ -2,7 +2,7 @@
 USERID=$1
 
 rm *debug*.zst
-pacman -U --noconfirm llvm-*.zst
+pacman -Uy --noconfirm llvm-*.zst
 #pacman -Syu --noconfirm base-devel sudo git python-myst-parser
 useradd builder -u ${USERID} -m -G wheel && echo "builder ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 #chown builder -R ..
