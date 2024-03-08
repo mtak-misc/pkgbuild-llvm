@@ -24,11 +24,11 @@ jobs:
           echo "USERID=$(id -u $(whoami))" >> $GITHUB_ENV
         env: 
           USERID: ''
-#      - name: Build llvm
-#        uses: docker://archlinux:latest
-#        with:
-#          entrypoint: '/bin/sh'
-#          args: ./build.sh ${{ env.USERID }}
+      - name: Build 
+        uses: docker://archlinux:latest
+        with:
+          entrypoint: '/bin/sh'
+          args: ./build-clang_lld.sh ${{ env.USERID }}
 #      - name: Upload packages
 #        uses: actions/upload-artifact@v4
 #        with:
