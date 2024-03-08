@@ -15,7 +15,7 @@ jobs:
         uses: actions/checkout@v4
       - name: Prepare for makepkg
         run: |
-          gh run download 8200844359
+          gh run download -n llvm-git
           ls -lh
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
