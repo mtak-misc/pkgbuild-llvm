@@ -1,0 +1,30 @@
+name: build-clang-llm 
+
+on:
+  workflow_dispatch:
+
+#env:
+#  PKGDEST: "/tmp/pkgbuild-llvm-git"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+#    container: archlinux:latest 
+    steps:
+#      - name: Checkount repo
+#        uses: actions/checkout@v4
+      - name: Prepare for makepkg
+        run: |
+          gh run --help
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+#      - name: Build llvm
+#        uses: docker://archlinux:latest
+#        with:
+#          entrypoint: '/bin/sh'
+#          args: ./build.sh ${{ env.USERID }}
+#      - name: Upload packages
+#        uses: actions/upload-artifact@v4
+#        with:
+#          name: llvm-git
+#          path: ${{ github.workspace }}/llvm-git/*.pkg.tar.zst
