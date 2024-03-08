@@ -19,6 +19,11 @@ jobs:
           ls -lh
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Set UserID
+        run: |
+          echo "USERID=$(id -u $(whoami))" >> $GITHUB_ENV
+        env: 
+          USERID: ''
 #      - name: Build llvm
 #        uses: docker://archlinux:latest
 #        with:
