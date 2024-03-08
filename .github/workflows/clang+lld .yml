@@ -15,7 +15,7 @@ jobs:
         uses: actions/checkout@v4
       - name: Prepare for makepkg
         run: |
-          gh run list
+          gh run view
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 #      - name: Build llvm
