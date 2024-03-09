@@ -7,7 +7,7 @@ cd ./llvm ; su builder -c "yes '' | MAKEFLAGS=\"-j $(nproc)\" makepkg --noconfir
 rm llvm-debug*.zst
 pacman -Syu --noconfirm base-devel sudo git python-myst-parser
 pacman -U --noconfirm llvm-*.zst
-useradd builder -u ${USERID} -m -G wheel && echo "builder ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
+
 cd ../compiler-rt ; su builder -c "yes '' | MAKEFLAGS=\"-j $(nproc)\" makepkg --noconfirm --nocheck --skippgpcheck -sc"
 rm compiler-rt-debug*.zst
 pacman -U --noconfirm compiler-rt-*.zst
