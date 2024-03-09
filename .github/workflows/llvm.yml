@@ -80,7 +80,6 @@ jobs:
       - name: Prepare for makepkg
         run: |
           git clone --depth 1 https://gitlab.archlinux.org/archlinux/packaging/packages/llvm.git
-          echo "USERID=$(id -u $(whoami))" >> $GITHUB_ENV
           sed -i 's/pkgver=17.0.6/pkgver=18.1.1/g' llvm/PKGBUILD
           sed -i 's/pkgrel=2/pkgrel=1/g' llvm/PKGBUILD
           sed -i 's/b638167da139126ca11917b6880207cc6e8f9d1cbb1a48d87d017f697ef78188/SKIP/g' llvm/PKGBUILD
@@ -106,6 +105,7 @@ jobs:
           sed -i 's/9e7535a353aa862730b4ba38df42e06f6856b40c4cc51b57f27b5046dc21d70d/SKIP/g' lld/PKGBUILD
           sed -i 's/807f069c54dc20cb47b21c1f6acafdd9c649f3ae015609040d6182cab01140f4/SKIP/g' lld/PKGBUILD
           sed -i '/patch -Np2/d' lld/PKGBUILD
+          echo "USERID=$(id -u $(whoami))" >> $GITHUB_ENV
         env: 
           USERID: ''    
       - name: Build llvm
