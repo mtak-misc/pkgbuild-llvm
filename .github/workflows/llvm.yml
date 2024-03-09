@@ -3,16 +3,11 @@ name: build-llvm
 on:
   workflow_dispatch:
 
-#env:
-#  PKGDEST: "/tmp/pkgbuild-llvm-git"
-
 jobs:
   build:
     runs-on: ubuntu-latest
-#    container: archlinux:latest 
     steps:
       - name: Cleanup
-#        if: ${{ 'true' == 'false' }}
         run: |
           docker images
           sudo rm -rf "/opt/*" || true
