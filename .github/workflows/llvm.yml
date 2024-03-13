@@ -71,10 +71,6 @@ jobs:
           sudo apt-get autoremove -y >/dev/null 2>&1 || true
           sudo apt-get autoclean -y >/dev/null 2>&1 || true
           df -h
-#      - name: Set Swap Space
-#        uses: pierotofy/set-swap-space@master
-#        with:
-#          swap-size-gb: 13
       - name: Checkount repo
         uses: actions/checkout@v4
       - name: Prepare for makepkg
@@ -106,7 +102,9 @@ jobs:
           sed -i 's/807f069c54dc20cb47b21c1f6acafdd9c649f3ae015609040d6182cab01140f4/SKIP/g' lld/PKGBUILD
           sed -i '/patch -Np2/d' lld/PKGBUILD
           echo "USERID=$(id -u $(whoami))" >> $GITHUB_ENV
-        env: 
+          gh run download -n llvm
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           USERID: ''    
       - name: Build llvm
         uses: docker://archlinux:latest
