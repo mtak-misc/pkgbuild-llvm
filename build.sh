@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 USERID=$1
 
 pacman -Syu --noconfirm base-devel sudo git python-myst-parser
