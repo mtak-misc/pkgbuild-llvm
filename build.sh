@@ -4,8 +4,9 @@ USERID=$1
 pacman -Syu --noconfirm base-devel sudo git python-myst-parser
 useradd builder -u ${USERID} -m -G wheel && echo "builder ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 
-RES=`find ./ -maxdepth 1 -name *.pkg.tar.zst 2>/dev/null`
 ls -l *.pkg.tar.zst
+find ./ -maxdepth 1 -name *.pkg.tar.zst 2>/dev/null
+RES=`find ./ -maxdepth 1 -name *.pkg.tar.zst 2>/dev/null`
 if [ $? -ne 0 ]; then
   echo 'Unexpected error.'
   echo $RES
