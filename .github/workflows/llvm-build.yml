@@ -1,7 +1,13 @@
 name: llvm-build
 
 on:
-  workflow_dispatch:
+  workflow_run:
+    workflows:
+      - gcc-build
+    branches:
+      - main
+    types: 
+      - completed
 
 jobs:
   build:
