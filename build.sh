@@ -6,9 +6,9 @@ useradd builder -u ${USERID} -m -G wheel && echo "builder ALL=(ALL) NOPASSWD: AL
 
 RES=`find ./ -maxdepth 1 -name *.pkg.tar.zst 2>/dev/null`
 if [ $? -ne 0 ]; then
-  #
+  echo 'Unexpected error.'
 elif [ -z "$RES" ]; then
-  #
+  echo 'No packages.'
 else
   pacman --noconfirm -U *.pkg.tar.zst
   export CC=clang
