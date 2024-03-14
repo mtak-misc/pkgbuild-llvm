@@ -5,10 +5,8 @@ pacman -Syu --noconfirm base-devel sudo git python-myst-parser
 useradd builder -u ${USERID} -m -G wheel && echo "builder ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 
 RES=`find ./ -maxdepth 1 -name *.pkg.tar.zst 2>/dev/null`
-if [ $? -ne 0 ]; then
-  echo 'Unexpected error.'
-  echo $RES
-elif [ -z "$RES" ]; then
+
+if [ -z "$RES" ]; then
   echo 'No packages.'
 else
   pacman --noconfirm -U *.pkg.tar.zst
