@@ -23,9 +23,9 @@ cd ../compiler-rt ; su builder -c "yes '' | MAKEFLAGS=\"-j $(nproc)\" makepkg --
 rm compiler-rt-debug*.zst
 pacman -U --noconfirm compiler-rt-*.zst
 
-#cd ../clang ; su builder -c "yes '' | MAKEFLAGS=\"-j $(nproc)\" makepkg --noconfirm --nocheck --skippgpcheck -sc"
-#rm clang-debug*.zst
-#pacman -U --noconfirm clang-*.zst
+cd ../clang ; su builder -c "yes '' | MAKEFLAGS=\"-j $(nproc)\" makepkg --noconfirm --nocheck --skippgpcheck -sc"
+rm clang-debug*.zst
+pacman -U --noconfirm clang-*.zst
 
 #cd ../lld ; su builder -c "yes '' | MAKEFLAGS=\"-j $(nproc)\" makepkg --noconfirm --nocheck --skippgpcheck -sc"
 #rm lld-debug*.zst
