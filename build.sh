@@ -27,8 +27,8 @@ cd ../clang ; su builder -c "yes '' | MAKEFLAGS=\"-j $(nproc)\" makepkg --noconf
 rm clang-debug*.zst
 pacman -U --noconfirm clang-*.zst
 
-#cd ../lld ; su builder -c "yes '' | MAKEFLAGS=\"-j $(nproc)\" makepkg --noconfirm --nocheck --skippgpcheck -sc"
-#rm lld-debug*.zst
+cd ../lld ; su builder -c "yes '' | MAKEFLAGS=\"-j $(nproc)\" makepkg --noconfirm --nocheck --skippgpcheck -sc"
+rm lld-debug*.zst
 
 cd ..
 mv */*.zst .
