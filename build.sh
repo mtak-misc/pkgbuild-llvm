@@ -36,11 +36,7 @@ mv clang-*.zst ..
 cd ..
 rm -rf clang
 
-cd ./lld ; su builder -c "yes '' | MAKEFLAGS=\"-j $(nproc)\" makepkg --noconfirm --nocheck --skippgpcheck -sc"
-rm lld-debug*.zst
-mv lld-*.zst ..
-#cd ..
-#rm -rf lld
+#cd ./lld ; su builder -c "yes '' | MAKEFLAGS=\"-j $(nproc)\" makepkg --noconfirm --nocheck --skippgpcheck -sc"
+#rm lld-debug*.zst
+#mv lld-*.zst ..
 
-#cd ..
-#mv */*.zst .
