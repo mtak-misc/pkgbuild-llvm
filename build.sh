@@ -15,28 +15,28 @@ else
   export CXX=clang++
 fi
 
-cd ./llvm ; su builder -c "yes '' | MAKEFLAGS=\"-j $(nproc)\" makepkg --noconfirm --nocheck --skippgpcheck -sc"
-rm llvm-debug*.zst
-pacman -U --noconfirm llvm-*.zst
-mv llvm-*.zst ..
-cd ..
-rm -rf llvm
-
-cd ./compiler-rt ; su builder -c "yes '' | MAKEFLAGS=\"-j $(nproc)\" makepkg --noconfirm --nocheck --skippgpcheck -sc"
-rm compiler-rt-debug*.zst
-pacman -U --noconfirm compiler-rt-*.zst
-mv compiler-rt-*.zst ..
-cd ..
-rm -rf compiler-rt
-
-#cd ./clang ; su builder -c "yes '' | MAKEFLAGS=\"-j $(nproc)\" makepkg --noconfirm --nocheck --skippgpcheck -sc"
-#rm clang-debug*.zst
-#pacman -U --noconfirm clang-*.zst
-#mv clang-*.zst ..
+#cd ./llvm ; su builder -c "yes '' | MAKEFLAGS=\"-j $(nproc)\" makepkg --noconfirm --nocheck --skippgpcheck -sc"
+#rm llvm-debug*.zst
+#pacman -U --noconfirm llvm-*.zst
+#mv llvm-*.zst ..
 #cd ..
-#rm -rf clang
+#rm -rf llvm
 
-#cd ./lld ; su builder -c "yes '' | MAKEFLAGS=\"-j $(nproc)\" makepkg --noconfirm --nocheck --skippgpcheck -sc"
-#rm lld-debug*.zst
-#mv lld-*.zst ..
+#cd ./compiler-rt ; su builder -c "yes '' | MAKEFLAGS=\"-j $(nproc)\" makepkg --noconfirm --nocheck --skippgpcheck -sc"
+#rm compiler-rt-debug*.zst
+#pacman -U --noconfirm compiler-rt-*.zst
+#mv compiler-rt-*.zst ..
+#cd ..
+#rm -rf compiler-rt
+
+cd ./clang ; su builder -c "yes '' | MAKEFLAGS=\"-j $(nproc)\" makepkg --noconfirm --nocheck --skippgpcheck -sc"
+rm clang-debug*.zst
+pacman -U --noconfirm clang-*.zst
+mv clang-*.zst ..
+cd ..
+rm -rf clang
+
+cd ./lld ; su builder -c "yes '' | MAKEFLAGS=\"-j $(nproc)\" makepkg --noconfirm --nocheck --skippgpcheck -sc"
+rm lld-debug*.zst
+mv lld-*.zst ..
 
