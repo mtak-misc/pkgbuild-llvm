@@ -3,7 +3,7 @@ name: llvm-build2
 on:
   workflow_run:
     workflows:
-      - gcc-build
+      - llvm-build1
     branches:
       - main
     types: 
