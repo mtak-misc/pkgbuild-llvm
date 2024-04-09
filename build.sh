@@ -8,12 +8,13 @@ RES=`find ./ -maxdepth 1 -name "*.pkg.tar.zst" 2>/dev/null`
 if [ $? -ne 0 ]; then
   echo 'Unexpected error.'
 elif [ -z "$RES" ]; then
-  echo 'No packages.'
+  pacman -S --noconfirm llvm llvm-libs compiler-rt clang lld
 else
   pacman --noconfirm -U *.pkg.tar.zst
-  export CC=clang
-  export CXX=clang++
 fi
+
+export CC=clang
+export CXX=clang++
 
 cd ./llvm ; su builder -c "yes '' | MAKEFLAGS=\"-j $(nproc)\" makepkg --noconfirm --nocheck --skippgpcheck -sc"
 rm llvm-debug*.zst
