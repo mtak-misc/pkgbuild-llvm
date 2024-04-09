@@ -17,33 +17,18 @@ fi
 
 cd ./llvm ; su builder -c "yes '' | MAKEFLAGS=\"-j $(nproc)\" makepkg --noconfirm --nocheck --skippgpcheck -sc"
 rm llvm-debug*.zst
-if [ -z "$RES" ]; then
-  echo 'gcc build.'
-else
-  pacman -U --noconfirm llvm-*.zst
-fi
 mv llvm-*.zst ..
 cd ..
 rm -rf llvm
 
 cd ./compiler-rt ; su builder -c "yes '' | MAKEFLAGS=\"-j $(nproc)\" makepkg --noconfirm --nocheck --skippgpcheck -sc"
 rm compiler-rt-debug*.zst
-if [ -z "$RES" ]; then
-  echo 'gcc build.'
-else
-  pacman -U --noconfirm compiler-rt-*.zst
-fi
 mv compiler-rt-*.zst ..
 cd ..
 rm -rf compiler-rt
 
 cd ./clang ; su builder -c "yes '' | MAKEFLAGS=\"-j $(nproc)\" makepkg --noconfirm --nocheck --skippgpcheck -sc"
 rm clang-debug*.zst
-#if [ -z "$RES" ]; then
-#  echo 'gcc build.'
-#else
-#  pacman -U --noconfirm clang-*.zst
-#fi
 mv clang-*.zst ..
 cd ..
 rm -rf clang
