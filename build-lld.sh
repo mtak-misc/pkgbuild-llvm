@@ -17,3 +17,4 @@ fi
 
 cd ./lld ; su builder -c "yes '' | MAKEFLAGS=\"-j $(nproc)\" makepkg --noconfirm --nocheck --skippgpcheck -sc"
 rm lld-debug*.zst
+mv lld-*.zst ..
