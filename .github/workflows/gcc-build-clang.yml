@@ -99,5 +99,5 @@ jobs:
       - name: Upload packages
         uses: actions/upload-artifact@v4
         with:
-          name: llvm-gcc
+          name: clang-gcc
           path: ${{ github.workspace }}/*.pkg.tar.zst
