@@ -1,6 +1,13 @@
 name: llvm-build-llvm-libs1
 
 on:
+  workflow_run:
+    workflows:
+      - gcc-build-lld
+    branches:
+      - main
+    types: 
+      - completed
   workflow_dispatch:
 
 jobs:
