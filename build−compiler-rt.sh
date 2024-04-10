@@ -17,3 +17,4 @@ fi
 
 cd ./compiler-rt ; su builder -c "yes '' | MAKEFLAGS=\"-j $(nproc)\" makepkg --noconfirm --nocheck --skippgpcheck -sc"
 rm compiler-rt-debug*.zst
+mv compiler-rt-*.zst ..
