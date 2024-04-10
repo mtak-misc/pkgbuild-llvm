@@ -21,3 +21,4 @@ mv llvm-*.zst ..
 cd ..
 rm compiler-rt-*.zst
 rm clang-*.zst
+rm lld-*.zst
