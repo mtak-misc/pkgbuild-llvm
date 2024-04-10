@@ -17,7 +17,7 @@ jobs:
           sed -i 's/807f069c54dc20cb47b21c1f6acafdd9c649f3ae015609040d6182cab01140f4/SKIP/g' compiler-rt/PKGBUILD
           git clone --depth 1 https://gitlab.archlinux.org/archlinux/packaging/packages/clang.git
           echo "USERID=$(id -u $(whoami))" >> $GITHUB_ENV
-          gh run download -n llvm-libs
+          gh run download -n llvm-libs1
           gh run download -n compiler-rt-gcc
           gh run download -n clang-gcc
           gh run download -n lld-gcc
@@ -32,5 +32,5 @@ jobs:
       - name: Upload packages
         uses: actions/upload-artifact@v4
         with:
-          name: compiler-rt
+          name: compiler-rt1
           path: ${{ github.workspace }}/*.pkg.tar.zst
