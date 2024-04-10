@@ -1,6 +1,7 @@
 name: llvm-build-compiler-rt2
 
 on:
+  workflow_run:
     workflows:
       - llvm-build-llvm-libs2
     branches:
