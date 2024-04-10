@@ -11,9 +11,8 @@ export CXX=clang++
 cd ./compiler-rt ; su builder -c "yes '' | MAKEFLAGS=\"-j $(nproc)\" makepkg --noconfirm --nocheck --skippgpcheck -sc"
 rm compiler-rt-debug*.zst
 mv compiler-rt-*.zst ..
-if [ -n "$RES" ]; then
-  cd ..
-  rm llvm-*.zst
-  rm clang-*.zst
-  rm lld-*.zst
-fi
+
+cd ..
+rm llvm-*.zst
+rm clang-*.zst
+rm lld-*.zst
