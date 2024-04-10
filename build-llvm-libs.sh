@@ -20,3 +20,4 @@ rm llvm-debug*.zst
 mv llvm-*.zst ..
 cd ..
 rm compiler-rt-*.zst
+rm clang-*.zst
