@@ -87,7 +87,7 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           USERID: ''
-      - name: Build llvm
+      - name: Build lld
         uses: docker://archlinux:latest
         with:
           entrypoint: '/bin/sh'
