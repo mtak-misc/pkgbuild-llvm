@@ -86,9 +86,11 @@ jobs:
           sed -i '/patch -Np2/d' clang/PKGBUILD 
           sed -i '/clang-tools-extra|clang/d' clang/PKGBUILD
           echo "USERID=$(id -u $(whoami))" >> $GITHUB_ENV
-          
+          gh run download -n llvm-gcc
+          gh run download -n compiler-rt-gcc
         env:
-          USERID: ''    
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          USERID: ''
       - name: Build llvm
         uses: docker://archlinux:latest
         with:
