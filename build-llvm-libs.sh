@@ -18,7 +18,10 @@ fi
 cd ./llvm ; su builder -c "yes '' | MAKEFLAGS=\"-j $(nproc)\" makepkg --noconfirm --nocheck --skippgpcheck -sc"
 rm llvm-debug*.zst
 mv llvm-*.zst ..
-cd ..
-rm compiler-rt-*.zst
-rm clang-*.zst
-rm lld-*.zst
+
+if [ -n "$RES" ]; then
+  cd ..
+  rm compiler-rt-*.zst
+  rm clang-*.zst
+  rm lld-*.zst
+fi
