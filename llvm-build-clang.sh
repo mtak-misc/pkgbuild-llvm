@@ -11,3 +11,9 @@ export CXX=clang++
 cd ./clang ; su builder -c "yes '' | MAKEFLAGS=\"-j $(nproc)\" makepkg --noconfirm --nocheck --skippgpcheck -sc"
 rm clang-debug*.zst
 mv clang-*.zst ..
+if [ -n "$RES" ]; then
+  cd ..
+  rm llvm-*.zst
+  rm compiler-rt-*.zst
+  rm lld-*.zst
+fi
