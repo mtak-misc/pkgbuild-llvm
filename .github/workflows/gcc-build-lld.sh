@@ -83,8 +83,10 @@ jobs:
           sed -i 's/807f069c54dc20cb47b21c1f6acafdd9c649f3ae015609040d6182cab01140f4/SKIP/g' lld/PKGBUILD
           sed -i '/patch -Np2/d' lld/PKGBUILD
           echo "USERID=$(id -u $(whoami))" >> $GITHUB_ENV
+          gh run download -n llvm-gcc
         env:
-          USERID: ''    
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          USERID: ''
       - name: Build llvm
         uses: docker://archlinux:latest
         with:
