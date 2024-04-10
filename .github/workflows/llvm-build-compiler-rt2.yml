@@ -1,0 +1,36 @@
+name: llvm-build-compiler-rt2
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkount repo
+        uses: actions/checkout@v4
+      - name: Prepare for makepkg
+        run: |
+          git clone --depth 1 https://gitlab.archlinux.org/archlinux/packaging/packages/compiler-rt.git
+          sed -i 's/pkgver=17.0.6/pkgver=18.1.3/g' compiler-rt/PKGBUILD
+          sed -i 's/11b8d09dcf92a0f91c5c82defb5ad9ff4acf5cf073a80c317204baa922d136b4/SKIP/g' compiler-rt/PKGBUILD
+          sed -i 's/807f069c54dc20cb47b21c1f6acafdd9c649f3ae015609040d6182cab01140f4/SKIP/g' compiler-rt/PKGBUILD
+          git clone --depth 1 https://gitlab.archlinux.org/archlinux/packaging/packages/clang.git
+          echo "USERID=$(id -u $(whoami))" >> $GITHUB_ENV
+          gh run download -n llvm-libs
+          gh run download -n compiler-rt1
+          gh run download -n clang1
+          gh run download -n lld1
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          USERID: ''
+      - name: Build compiler-rt
+        uses: docker://archlinux:latest
+        with:
+          entrypoint: '/bin/sh'
+          args: ./llvm-build-compiler-rt.sh ${{ env.USERID }}
+      - name: Upload packages
+        uses: actions/upload-artifact@v4
+        with:
+          name: compiler-rt
+          path: ${{ github.workspace }}/*.pkg.tar.zst
