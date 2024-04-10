@@ -1,6 +1,13 @@
 name: llvm-build-clang2
 
 on:
+  workflow_run:
+    workflows:
+      - llvm-build-compiler-rt2
+    branches:
+      - main
+    types: 
+      - completed
   workflow_dispatch:
 
 jobs:
