@@ -81,8 +81,10 @@ jobs:
           sed -i 's/807f069c54dc20cb47b21c1f6acafdd9c649f3ae015609040d6182cab01140f4/SKIP/g' compiler-rt/PKGBUILD
           git clone --depth 1 https://gitlab.archlinux.org/archlinux/packaging/packages/clang.git
           echo "USERID=$(id -u $(whoami))" >> $GITHUB_ENV
+          gh run download -n llvm-gcc
         env:
-          USERID: ''    
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          USERID: ''
       - name: Build compiler-rt
         uses: docker://archlinux:latest
         with:
