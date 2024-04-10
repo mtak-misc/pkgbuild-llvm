@@ -91,7 +91,7 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           USERID: ''
-      - name: Build llvm
+      - name: Build clang
         uses: docker://archlinux:latest
         with:
           entrypoint: '/bin/sh'
