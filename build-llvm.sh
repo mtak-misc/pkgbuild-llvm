@@ -17,6 +17,5 @@ fi
 
 cd ./llvm ; su builder -c "yes '' | MAKEFLAGS=\"-j $(nproc)\" makepkg --noconfirm --nocheck --skippgpcheck -sc"
 rm llvm-debug*.zst
-pacman -U --noconfirm llvm-*.zst
 mv llvm-*.zst ..
 cd ..
