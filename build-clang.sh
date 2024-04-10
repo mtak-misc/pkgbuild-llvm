@@ -17,3 +17,4 @@ fi
 
 cd ./clang ; su builder -c "yes '' | MAKEFLAGS=\"-j $(nproc)\" makepkg --noconfirm --nocheck --skippgpcheck -sc"
 rm clang-debug*.zst
+mv clang-*.zst ..
