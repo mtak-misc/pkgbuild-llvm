@@ -14,6 +14,8 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkount repo
+        uses: actions/checkout@v4
       - name: Get artifacts
         run: |
           gh run download -n llvm-libs
