@@ -8,7 +8,7 @@ pacman --noconfirm -U *.pkg.tar.zst
 export CC=clang
 export CXX=clang++
 
-cd ./clang ; su builder -c "yes '' | MAKEFLAGS=\"-j $(nproc)\" makepkg --noconfirm --nocheck --skippgpcheck -sc"
+cd ./clang ; su builder -c "yes '' | nice -n 10 MAKEFLAGS=\"-j $(nproc)\" makepkg --noconfirm --nocheck --skippgpcheck -sc"
 rm clang-debug*.zst
 mv clang-*.zst ..
 
