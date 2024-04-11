@@ -15,7 +15,7 @@ else
   export CXX=clang++
 fi
 
-cd ./llvm ; su builder -c "yes '' | MAKEFLAGS=\"-j $(nproc)\" makepkg --noconfirm --nocheck --skippgpcheck -sc"
+cd ./llvm ; su builder -c "yes '' | MAKEFLAGS=\"-j $(nproc)\" nice -n 10 makepkg --noconfirm --nocheck --skippgpcheck -sc"
 rm llvm-debug*.zst
 mv llvm-*.zst ..
 
