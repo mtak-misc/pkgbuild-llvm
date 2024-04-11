@@ -41,5 +41,5 @@ jobs:
       - name: Upload packages
         uses: actions/upload-artifact@v4
         with:
-          name: lld1
+          name: lld
           path: ${{ github.workspace }}/*.pkg.tar.zst
