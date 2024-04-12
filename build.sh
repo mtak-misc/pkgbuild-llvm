@@ -29,7 +29,7 @@ mv compiler-rt-*.zst ..
 cd ..
 #rm -rf compiler-rt
 
-cd ./clang ; su builder -c "yes '' | MAKEFLAGS=\"-j 2\" nice -n 20 makepkg --noconfirm --nocheck --skippgpcheck -sc"
+cd ./clang ; su builder -c "yes '' | MAKEFLAGS=\"-j 1\" nice -n 20 makepkg --noconfirm --nocheck --skippgpcheck -sc"
 rm clang-debug*.zst
 pacman -U --noconfirm clang-*.zst
 mv clang-*.zst ..
