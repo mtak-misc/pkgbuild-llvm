@@ -1,0 +1,42 @@
+name: llvm-build
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set Swap Space
+        uses: pierotofy/set-swap-space@master
+        with:
+          swap-size-gb: 13
+      - name: Checkount repo
+        uses: actions/checkout@v4
+      - name: Cleanup
+        run: |
+          sh ./cleanup.sh
+      - name: Prepare for makepkg
+        run: |
+          git clone --depth 1 https://gitlab.archlinux.org/archlinux/packaging/packages/llvm.git
+          sh ./modify-llvm-pkgbuild.sh
+          git clone --depth 1 https://gitlab.archlinux.org/archlinux/packaging/packages/compiler-rt.git
+          sh ./modify-compiler-rt-pkgbuild.sh
+          git clone --depth 1 https://gitlab.archlinux.org/archlinux/packaging/packages/clang.git
+          sh ./modify-clang-pkgbuild.sh
+          git clone --depth 1 https://gitlab.archlinux.org/archlinux/packaging/packages/lld.git
+          sh ./modify-lld-pkgbuild.sh
+          echo "USERID=$(id -u $(whoami))" >> $GITHUB_ENV
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          USERID: ''    
+      - name: Build llvm
+        uses: docker://archlinux:latest
+        with:
+          entrypoint: '/bin/sh'
+          args: ./llm-build.sh ${{ env.USERID }}
+      - name: Upload packages
+        uses: actions/upload-artifact@v4
+        with:
+          name: llvm
+          path: ${{ github.workspace }}/*.pkg.tar.zst
