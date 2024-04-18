@@ -4,7 +4,7 @@ USERID=$1
 pacman -Syu --noconfirm base-devel sudo git python-myst-parser
 useradd builder -u ${USERID} -m -G wheel && echo "builder ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 
-pacman --noconfirm llvm compiler-rt clang lld
+pacman -S --noconfirm llvm compiler-rt clang lld
 export CC=clang
 export CXX=clang++
 
