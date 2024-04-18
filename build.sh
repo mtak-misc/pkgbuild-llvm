@@ -15,7 +15,7 @@ else
   export CXX=clang++
 fi
 
-cd ./llvm ; su builder -c "yes '' | MAKEFLAGS=\"-j 2\" nice -n 20 makepkg --noconfirm --nocheck --skippgpcheck -sc"
+cd ./llvm ; su builder -c "yes '' | MAKEFLAGS=\"-j $(nproc)\" makepkg --noconfirm --nocheck --skippgpcheck -sc"
 rm llvm-debug*.zst
 #pacman -U --noconfirm llvm-*.zst
 mv llvm-*.zst ..
@@ -29,7 +29,7 @@ mv compiler-rt-*.zst ..
 cd ..
 #rm -rf compiler-rt
 
-cd ./clang ; su builder -c "yes '' | MAKEFLAGS=\"-j 1\" nice -n 20 makepkg --noconfirm --nocheck --skippgpcheck -sc"
+cd ./clang ; su builder -c "yes '' | MAKEFLAGS=\"-j $(nproc)\" makepkg --noconfirm --nocheck --skippgpcheck -sc"
 rm clang-debug*.zst
 #pacman -U --noconfirm clang-*.zst
 mv clang-*.zst ..
