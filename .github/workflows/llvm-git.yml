@@ -20,6 +20,7 @@ jobs:
         run: |
           git clone --depth 1 https://aur.archlinux.org/llvm-git.git
           sed -i 's/llvm-project.git/llvm-project.git#tag=llvmorg-18.1.4/g' llvm-git/PKGBUILD
+          sed -i 's/polly;lldb;lld;/lld;/g' llvm-git/PKGBUILD
           echo "USERID=$(id -u $(whoami))" >> $GITHUB_ENV
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
