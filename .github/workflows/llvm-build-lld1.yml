@@ -3,7 +3,7 @@ name: llvm-build-lld1
 on:
   workflow_run:
     workflows:
-      - llvm-build-compiler-rt1
+      - llvm-build-libs1
     branches:
       - main
     types: 
@@ -22,7 +22,7 @@ jobs:
           sh ./modify-lld-pkgbuild.sh
           echo "USERID=$(id -u $(whoami))" >> $GITHUB_ENV
           gh run download -n llvm-libs1
-          gh run download -n compiler-rt1
+          gh run download -n compiler-rt-gcc
           gh run download -n clang-gcc
           gh run download -n lld-gcc
         env:
