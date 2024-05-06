@@ -29,13 +29,13 @@ mv compiler-rt-*.zst ..
 cd ..
 #rm -rf compiler-rt
 
-cd ./clang ; su builder -c "yes '' | MAKEFLAGS=\"-j $(nproc)\" makepkg --noconfirm --nocheck --skippgpcheck -sc"
-rm clang-debug*.zst
-pacman -U --noconfirm clang-*.zst
-mv clang-*.zst ..
-cd ..
-#rm -rf clang
-
 cd ./lld ; su builder -c "yes '' | MAKEFLAGS=\"-j $(nproc)\" makepkg --noconfirm --nocheck --skippgpcheck -sc"
 rm lld-debug*.zst
+pacman -U --noconfirm lld-*.zst
 mv lld-*.zst ..
+cd ..
+
+cd ./clang ; su builder -c "yes '' | MAKEFLAGS=\"-j $(nproc)\" makepkg --noconfirm --nocheck --skippgpcheck -sc"
+rm clang-debug*.zst
+mv clang-*.zst ..
+#rm -rf clang
