@@ -1,9 +1,9 @@
-name: llvm-build-compiler-rt1
+name: llvm-build-lld1
 
 on:
   workflow_run:
     workflows:
-      - llvm-build-clang1
+      - llvm-build-compiler-rt1
     branches:
       - main
     types: 
