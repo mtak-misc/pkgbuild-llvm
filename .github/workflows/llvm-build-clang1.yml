@@ -28,8 +28,8 @@ jobs:
           git clone --depth 1 https://gitlab.archlinux.org/archlinux/packaging/packages/clang.git
           sh ./modify-clang-pkgbuild.sh
           echo "USERID=$(id -u $(whoami))" >> $GITHUB_ENV
-          gh run download -n llvm-libs-gcc
-          gh run download -n compiler-rt-gcc
+          gh run download -n llvm-libs1
+          gh run download -n compiler-rt1
           gh run download -n clang-gcc
           gh run download -n lld-gcc
         env:
