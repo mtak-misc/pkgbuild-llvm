@@ -1,4 +1,4 @@
-name: llvm-build-lld1
+name: llvm-build-compiler-rt1
 
 on:
   workflow_run:
@@ -23,7 +23,7 @@ jobs:
           echo "USERID=$(id -u $(whoami))" >> $GITHUB_ENV
           gh run download -n llvm-libs1
           gh run download -n compiler-rt1
-          gh run download -n clang1
+          gh run download -n clang-gcc
           gh run download -n lld-gcc
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
