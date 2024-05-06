@@ -9,3 +9,4 @@ sed -i 's/807f069c54dc20cb47b21c1f6acafdd9c649f3ae015609040d6182cab01140f4/SKIP/
 sed -i 's/3054d0a9c9375dab1a4539cc2cc45ab340341c5d71475f9599ba7752e222947b/SKIP/g' clang/PKGBUILD
 sed -i '/patch -Np2/d' clang/PKGBUILD 
 sed -i '/clang-tools-extra|clang/d' clang/PKGBUILD
+sed -i '/-G Ninja/a \t-DLLVM_BUILD_TESTS=OFF' clang/PKGBUILD
