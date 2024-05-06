@@ -3,7 +3,7 @@ name: llvm-build-clang1
 on:
   workflow_run:
     workflows:
-      - llvm-build-compiler-rt1
+      - llvm-build-lld1
     branches:
       - main
     types: 
@@ -31,7 +31,7 @@ jobs:
           gh run download -n llvm-libs1
           gh run download -n compiler-rt1
           gh run download -n clang-gcc
-          gh run download -n lld-gcc
+          gh run download -n lld1
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           USERID: ''
