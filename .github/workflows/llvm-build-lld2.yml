@@ -3,7 +3,7 @@ name: llvm-build-lld2
 on:
   workflow_run:
     workflows:
-      - llvm-build-libs2
+      - llvm-build-compiler-rt2
     branches:
       - main
     types: 
