@@ -3,7 +3,7 @@ name: llvm-build-lld2
 on:
   workflow_run:
     workflows:
-      - llvm-build-clang2
+      - llvm-build-libs2
     branches:
       - main
     types: 
@@ -23,7 +23,7 @@ jobs:
           echo "USERID=$(id -u $(whoami))" >> $GITHUB_ENV
           gh run download -n llvm-libs
           gh run download -n compiler-rt
-          gh run download -n clang
+          gh run download -n clang1
           gh run download -n lld1
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
