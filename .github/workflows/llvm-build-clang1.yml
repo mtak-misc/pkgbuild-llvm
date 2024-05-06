@@ -3,7 +3,7 @@ name: llvm-build-clang1
 on:
   workflow_run:
     workflows:
-      - llvm-build-lld1
+      - llvm-build-compiler-rt1
     branches:
       - main
     types: 
