@@ -7,6 +7,7 @@ useradd builder -u ${USERID} -m -G wheel && echo "builder ALL=(ALL) NOPASSWD: AL
 pacman --noconfirm -U *.pkg.tar.zst
 export CC=clang
 export CXX=clang++
+export LLVM_INCLUDE_TESTS=OFF
 
 cd ./clang ; su builder -c "yes '' | MAKEFLAGS=\"-j $(nproc)\" makepkg --noconfirm --nocheck --skippgpcheck -sc"
 rm clang-debug*.zst
