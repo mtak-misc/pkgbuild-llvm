@@ -3,7 +3,7 @@ name: llvm-build-compiler-rt2
 on:
   workflow_run:
     workflows:
-      - llvm-build-llvm-libs2
+      - llvm-build-lld2
     branches:
       - main
     types: 
@@ -24,7 +24,7 @@ jobs:
           gh run download -n llvm-libs
           gh run download -n compiler-rt1
           gh run download -n clang1
-          gh run download -n lld1
+          gh run download -n lld
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           USERID: ''
