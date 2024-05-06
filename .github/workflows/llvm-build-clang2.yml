@@ -31,7 +31,7 @@ jobs:
           gh run download -n llvm-libs
           gh run download -n compiler-rt
           gh run download -n clang1
-          gh run download -n lld1
+          gh run download -n lld
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           USERID: ''
