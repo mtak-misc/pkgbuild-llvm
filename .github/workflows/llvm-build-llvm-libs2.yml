@@ -3,7 +3,7 @@ name: llvm-build-llvm-libs2
 on:
   workflow_run:
     workflows:
-      - llvm-build-lld1
+      - llvm-build-clang1
     branches:
       - main
     types: 
