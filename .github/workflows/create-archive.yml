@@ -3,7 +3,7 @@ name: create-archive
 on:
   workflow_run:
     workflows:
-      - llvm-build-lld2
+      - llvm-build-clang2
     branches:
       - main
     types: 
@@ -18,10 +18,10 @@ jobs:
         uses: actions/checkout@v4
       - name: Get artifacts
         run: |
-          gh run download -n llvm-libs-gcc
-          gh run download -n compiler-rt-gcc
-          gh run download -n clang-gcc
-          gh run download -n lld-gcc
+          gh run download -n llvm-libs
+          gh run download -n compiler-rt
+          gh run download -n clang
+          gh run download -n lld
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Upload packages
