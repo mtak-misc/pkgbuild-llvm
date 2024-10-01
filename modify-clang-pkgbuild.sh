@@ -1,13 +1,13 @@
 #!/bin/sh
 
-sed -i 's/pkgver=17.0.6/pkgver=18.1.8/g' clang/PKGBUILD
+sed -i 's/pkgver=18.1.8/pkgver=19.1.0/g' clang/PKGBUILD
 sed -i 's/pkgrel=2/pkgrel=1/g' clang/PKGBUILD
-sed -i 's/a78f668a726ae1d3d9a7179996d97b12b90fb76ab9442a43110b972ff7ad9029/SKIP/g' clang/PKGBUILD
-sed -i 's/aa774642415d338d7b77a66fcbad6fd1f77f382dabcb67422a6230614eff1ab9/SKIP/g' clang/PKGBUILD
-sed -i 's/b638167da139126ca11917b6880207cc6e8f9d1cbb1a48d87d017f697ef78188/SKIP/g' clang/PKGBUILD
-sed -i 's/807f069c54dc20cb47b21c1f6acafdd9c649f3ae015609040d6182cab01140f4/SKIP/g' clang/PKGBUILD
-sed -i 's/3054d0a9c9375dab1a4539cc2cc45ab340341c5d71475f9599ba7752e222947b/SKIP/g' clang/PKGBUILD
+sed -i 's/5724fe0a13087d5579104cedd2f8b3bc10a212fb79a0fcdac98f4880e19f4519/SKIP/g' clang/PKGBUILD
+sed -i 's/e58877fcd95ed106824bd1a31276dd17ed0c53adcd60ca75289eac0654f0a7f1/SKIP/g' clang/PKGBUILD
+sed -i 's/f68cf90f369bc7d0158ba70d860b0cb34dbc163d6ff0ebc6cfa5e515b9b2e28d/SKIP/g' clang/PKGBUILD
+sed -i 's/59badef592dd34893cd319d42b323aaa990b452d05c7180ff20f23ab1b41e837/SKIP/g' clang/PKGBUILD
+sed -i 's/b76b810f3d3dc5d08e83c4236cb6e395aa9bd5e3ea861e8c319b216d093db074/SKIP/g' clang/PKGBUILD
 sed -i '/patch -Np2/d' clang/PKGBUILD 
 sed -i '/clang-tools-extra|clang/d' clang/PKGBUILD
 sed -i 's/-DLLVM_BUILD_TESTS=ON/-DLLVM_BUILD_TESTS=OFF/g' clang/PKGBUILD
-sed -i 's/c102e8a6a2adb0e8729865ffb8799b22bb8a9bdf0f421991880fa4393378370a/SKIP/g' clang/PKGBUILD
+sed -i 's/0d4dc477f5a28f9f16639dc094b6d9bc14228d5de771547394799d2d5f8cd1df/SKIP/g' clang/PKGBUILD
