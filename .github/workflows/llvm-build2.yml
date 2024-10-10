@@ -18,7 +18,7 @@ jobs:
         uses: pierotofy/set-swap-space@master
         with:
           swap-size-gb: 13
-      - name: Checkount repo
+      - name: Checkout repo
         uses: actions/checkout@v4
       - name: Cleanup
         run: |
