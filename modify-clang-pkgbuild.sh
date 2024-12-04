@@ -1,7 +1,7 @@
 #!/bin/sh
 
 sed -i 's/pkgver=18.1.8/pkgver=19.1.5/g' clang/PKGBUILD
-sed -i 's/pkgrel=4/pkgrel=1/g' clang/PKGBUILD
+sed -i 's/pkgrel=5/pkgrel=1/g' clang/PKGBUILD
 sed -i 's/5724fe0a13087d5579104cedd2f8b3bc10a212fb79a0fcdac98f4880e19f4519/SKIP/g' clang/PKGBUILD
 sed -i 's/e58877fcd95ed106824bd1a31276dd17ed0c53adcd60ca75289eac0654f0a7f1/SKIP/g' clang/PKGBUILD
 sed -i 's/f68cf90f369bc7d0158ba70d860b0cb34dbc163d6ff0ebc6cfa5e515b9b2e28d/SKIP/g' clang/PKGBUILD
