@@ -6,4 +6,4 @@ sed -i 's/ad1a3b125ff014ded290094088de40efb9193ce81a24278184230b7d401f8a3e/SKIP/
 sed -i 's/34eab971069837be770e44f3543f1eb50f385575e8f29d1b5e1a67e7c482f680/SKIP/g' lld/PKGBUILD
 sed -i 's/9c7ec82d9a240dc2287b8de89d6881bb64ceea0dcd6ce133c34ef65bda22d99e/SKIP/g' lld/PKGBUILD
 #sed -i '/patch -Np2/d' lld/PKGBUILD
-# sed -i 's//SKIP/g' lld/PKGBUILD
+#sed -i 's//SKIP/g' lld/PKGBUILD
