@@ -1,6 +1,6 @@
 #!/bin/sh
 
-#sed -i 's/pkgver=19.1.6/pkgver=19.1.7/g' compiler-rt/PKGBUILD
+sed -i 's/pkgver=19.1.7/pkgver=20.1.0/g' compiler-rt/PKGBUILD
 # sed -i 's/pkgrel=2/pkgrel=1/g' compiler-rt/PKGBUILD
-#sed -i 's/0d4f312e1419152282c267e6b6a1fa5914a7a0c753a5e926bee1c8c28e614ae4/SKIP/g' compiler-rt/PKGBUILD
-#sed -i 's/9c7ec82d9a240dc2287b8de89d6881bb64ceea0dcd6ce133c34ef65bda22d99e/SKIP/g' compiler-rt/PKGBUILD
+sed -i 's/c12b6e764202c615c1a3af9a13d477846878757ae0e29e5f8979215a6958fffc/SKIP/g' compiler-rt/PKGBUILD
+sed -i 's/11c5a28f90053b0c43d0dec3d0ad579347fc277199c005206b963c19aae514e3/SKIP/g' compiler-rt/PKGBUILD
