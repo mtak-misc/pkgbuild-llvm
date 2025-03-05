@@ -1,8 +1,8 @@
 #!/bin/sh
 
-#sed -i 's/pkgver=19.1.6/pkgver=19.1.7/g' llvm/PKGBUILD
-#sed -i 's/pkgrel=3/pkgrel=1/g' llvm/PKGBUILD
-#sed -i 's/ad1a3b125ff014ded290094088de40efb9193ce81a24278184230b7d401f8a3e/SKIP/g' llvm/PKGBUILD
-#sed -i 's/9c7ec82d9a240dc2287b8de89d6881bb64ceea0dcd6ce133c34ef65bda22d99e/SKIP/g' llvm/PKGBUILD
-#sed -i 's/0e8048333bab2ba3607910e5d074259f08dccf00615778d03a2a55416718eb45/SKIP/g' llvm/PKGBUILD
-#sed -i '/patch -Np2/d' llvm/PKGBUILD
+sed -i 's/pkgver=19.1.7/pkgver=20.1.0/g' llvm/PKGBUILD
+# sed -i 's/pkgrel=3/pkgrel=1/g' llvm/PKGBUILD
+sed -i 's/96f833c6ad99a3e8e1d9aca5f439b8fd2c7efdcf83b664e0af1c0712c5315910/SKIP/g' llvm/PKGBUILD
+sed -i 's/11c5a28f90053b0c43d0dec3d0ad579347fc277199c005206b963c19aae514e3/SKIP/g' llvm/PKGBUILD
+sed -i 's/b96deca1d3097c7ffd4ff2bb904a50bdd56bec7ed1413ffb0d1d01af87b72c12/SKIP/g' llvm/PKGBUILD
+# sed -i '/patch -Np2/d' llvm/PKGBUILD
