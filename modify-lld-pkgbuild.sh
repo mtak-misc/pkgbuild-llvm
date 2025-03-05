@@ -1,9 +1,8 @@
 #!/bin/sh
 
-#sed -i 's/pkgver=19.1.6/pkgver=19.1.7/g' lld/PKGBUILD
-#sed -i 's/44fa50556cefbe3796e8256536267ee2f34ced5f3c1492473bccd75449cadbe6/SKIP/g' lld/PKGBUILD
-#sed -i 's/ad1a3b125ff014ded290094088de40efb9193ce81a24278184230b7d401f8a3e/SKIP/g' lld/PKGBUILD
-#sed -i 's/34eab971069837be770e44f3543f1eb50f385575e8f29d1b5e1a67e7c482f680/SKIP/g' lld/PKGBUILD
-#sed -i 's/9c7ec82d9a240dc2287b8de89d6881bb64ceea0dcd6ce133c34ef65bda22d99e/SKIP/g' lld/PKGBUILD
-#sed -i '/patch -Np2/d' lld/PKGBUILD
-#sed -i 's//SKIP/g' lld/PKGBUILD
+sed -i 's/pkgver=19.1.7/pkgver=20.1.0/g' lld/PKGBUILD
+sed -i 's/630bf0f31b210e89fd7869bdfd6c376d010fc3b72ee42f08058435035c432e42/SKIP/g' lld/PKGBUILD
+sed -i 's/96f833c6ad99a3e8e1d9aca5f439b8fd2c7efdcf83b664e0af1c0712c5315910/SKIP/g' lld/PKGBUILD
+sed -i 's/10e650f436bc416674f01b5e01177405886f4d0f0b2568c6808044eacad52ea0/SKIP/g' lld/PKGBUILD
+sed -i 's/11c5a28f90053b0c43d0dec3d0ad579347fc277199c005206b963c19aae514e3/SKIP/g' lld/PKGBUILD
+# sed -i '/patch -Np2/d' lld/PKGBUILD
