@@ -10,4 +10,4 @@ sed -i 's/b96deca1d3097c7ffd4ff2bb904a50bdd56bec7ed1413ffb0d1d01af87b72c12/SKIP/
 sed -i '/patch -Np2/d' clang/PKGBUILD 
 # sed -i '/clang-tools-extra|clang/d' clang/PKGBUILD
 sed -i 's/-DLLVM_BUILD_TESTS=ON/-DLLVM_BUILD_TESTS=OFF/g' clang/PKGBUILD
-# sed -i 's/0d4dc477f5a28f9f16639dc094b6d9bc14228d5de771547394799d2d5f8cd1df/SKIP/g' clang/PKGBUILD
+sed -i 's/94a3d4df2443f9dc9e256e6c0c661ff4a4ca4f34a5ca351f065511b9694faf2a/SKIP/g' clang/PKGBUILD
