@@ -1,6 +1,6 @@
 #!/bin/sh
 
-sed -i 's/pkgver=19.1.7/pkgver=20.1.4/g' clang/PKGBUILD
+sed -i 's/pkgver=19.1.7/pkgver=20.1.5/g' clang/PKGBUILD
 sed -i 's/pkgrel=2/pkgrel=1/g' clang/PKGBUILD
 sed -i 's/11e5e4ecab5338b9914de3b83a4622cb200de466b7c56ba675afb72fa7d64675/SKIP/g' clang/PKGBUILD
 sed -i 's/430b088bf820550090a6cf0eec67183d045273c18b3f1d6c5207e46d93391be7/SKIP/g' clang/PKGBUILD
