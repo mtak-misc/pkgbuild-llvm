@@ -32,7 +32,7 @@ jobs:
           git clone --depth 1 https://gitlab.archlinux.org/archlinux/packaging/packages/compiler-rt.git
           git clone --depth 1 https://gitlab.archlinux.org/archlinux/packaging/packages/clang.git
           git clone --depth 1 https://gitlab.archlinux.org/archlinux/packaging/packages/lld.git
-          PKGVERSION=$(grep "pkgver=" PKGBUILD)
+          PKGVERSION=$(grep "pkgver=" llvm/PKGBUILD)
           OLDVERSION="${PKGVERSION#pkgver=}"
           if [ ${NEWVERSION} != ${OLDVERSION} ]; then
             sh ./modify-llvm-pkgbuild.sh ${{ github.event.inputs.new_llvm_ver }}
