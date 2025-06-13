@@ -9,11 +9,6 @@ on:
     types: 
       - completed
   workflow_dispatch:
-    inputs:
-      new_llvm_ver:
-        type: string
-        required: false
-        description: "New LLVM version"
 
 jobs:
   build:
@@ -30,20 +25,21 @@ jobs:
           sh ./cleanup.sh
       - name: Prepare for makepkg
         run: |
+          gh run download -n llvm-gcc
+          NEWVERSION=$(ls -1 llvm-*.zst | cut -d- -f2)
           PKGVERSION=$(grep "pkgver=" PKGBUILD)
           OLDVERSION="${PKGVERSION#pkgver=}"
           git clone --depth 1 https://gitlab.archlinux.org/archlinux/packaging/packages/llvm.git
           git clone --depth 1 https://gitlab.archlinux.org/archlinux/packaging/packages/compiler-rt.git
           git clone --depth 1 https://gitlab.archlinux.org/archlinux/packaging/packages/clang.git
           git clone --depth 1 https://gitlab.archlinux.org/archlinux/packaging/packages/lld.git
-          if [ ${{ github.event.inputs.new_llvm_ver }} != ${OLDVERSION} ]; then
+          if [ ${NEWVERSION} != ${OLDVERSION} ]; then
             sh ./modify-llvm-pkgbuild.sh ${{ github.event.inputs.new_llvm_ver }}
             sh ./modify-compiler-rt-pkgbuild.sh ${{ github.event.inputs.new_llvm_ver }}
             sh ./modify-clang-pkgbuild.sh ${{ github.event.inputs.new_llvm_ver }}
             sh ./modify-lld-pkgbuild.sh ${{ github.event.inputs.new_llvm_ver }}
           fi
           echo "USERID=$(id -u $(whoami))" >> $GITHUB_ENV
-          gh run download -n llvm-gcc
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           USERID: ''    
