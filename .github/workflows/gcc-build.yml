@@ -2,7 +2,11 @@ name: gcc-build
 
 on:
   workflow_dispatch:
-
+    inputs:
+      new_llvm_ver:
+        type: string
+        required: false
+        description: "New LLVM version"
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -18,14 +22,18 @@ jobs:
           sh ./cleanup.sh
       - name: Prepare for makepkg
         run: |
+          PKGVERSION=$(grep "pkgver=" PKGBUILD)
+          OLDVERSION="${PKGVERSION#pkgver=}"
           git clone --depth 1 https://gitlab.archlinux.org/archlinux/packaging/packages/llvm.git
-          sh ./modify-llvm-pkgbuild.sh
           git clone --depth 1 https://gitlab.archlinux.org/archlinux/packaging/packages/compiler-rt.git
-          sh ./modify-compiler-rt-pkgbuild.sh
           git clone --depth 1 https://gitlab.archlinux.org/archlinux/packaging/packages/clang.git
-          sh ./modify-clang-pkgbuild.sh
           git clone --depth 1 https://gitlab.archlinux.org/archlinux/packaging/packages/lld.git
-          sh ./modify-lld-pkgbuild.sh
+          if [ ${{ github.event.inputs.new_llvm_ver }} != ${OLDVERSION} ]; then
+            sh ./modify-llvm-pkgbuild.sh ${{ github.event.inputs.new_llvm_ver }}
+            sh ./modify-compiler-rt-pkgbuild.sh ${{ github.event.inputs.new_llvm_ver }}
+            sh ./modify-clang-pkgbuild.sh ${{ github.event.inputs.new_llvm_ver }}
+            sh ./modify-lld-pkgbuild.sh ${{ github.event.inputs.new_llvm_ver }}
+          fi
           echo "USERID=$(id -u $(whoami))" >> $GITHUB_ENV
         env:
           USERID: ''    
