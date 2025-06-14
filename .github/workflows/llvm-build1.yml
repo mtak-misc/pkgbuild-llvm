@@ -20,9 +20,9 @@ jobs:
           swap-size-gb: 13
       - name: Checkout repo
         uses: actions/checkout@v4
-#      - name: Cleanup
-#        run: |
-#          sh ./cleanup.sh
+      - name: Cleanup
+        run: |
+          sh ./cleanup.sh
       - name: Prepare for makepkg
         run: |
           echo "USERID=$(id -u $(whoami))" >> $GITHUB_ENV
