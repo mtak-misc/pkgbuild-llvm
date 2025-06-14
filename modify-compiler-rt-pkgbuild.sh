@@ -2,7 +2,7 @@
 NEWVERSION=$1
 PKGVERSION=$(grep "pkgver=" compiler-rt/PKGBUILD)
 OLDVERSION="${PKGVERSION#pkgver=}"
-PKGREL=$(grep "pkgrel=" PKGBUILD)
+PKGREL=$(grep "pkgrel=" compiler-rt/PKGBUILD)
 
 echo "sed -i 's/${OLDVERSION}/${NEWVERSION}/g' compiler-rt/PKGBUILD" | bash
 echo "sed -i 's/${PKGREL}/pkgrel=1/g' compiler-rt/PKGBUILD" | bash
