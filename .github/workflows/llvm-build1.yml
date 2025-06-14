@@ -28,9 +28,6 @@ jobs:
           echo "USERID=$(id -u $(whoami))" >> $GITHUB_ENV
           gh run download -n llvm-gcc
           NEWVERSION=$(ls -1 llvm-*.zst | head -n 1 | cut -d- -f2)
-          ls -1 llvm-*.zst
-          echo 'NEWVEISION:'
-          echo $NEWVERSION
           git clone --depth 1 https://gitlab.archlinux.org/archlinux/packaging/packages/llvm.git
           git clone --depth 1 https://gitlab.archlinux.org/archlinux/packaging/packages/compiler-rt.git
           git clone --depth 1 https://gitlab.archlinux.org/archlinux/packaging/packages/clang.git
@@ -38,10 +35,10 @@ jobs:
           PKGVERSION=$(grep "pkgver=" llvm/PKGBUILD)
           OLDVERSION="${PKGVERSION#pkgver=}"
           if [ ${NEWVERSION} != ${OLDVERSION} ]; then
-            sh ./modify-llvm-pkgbuild.sh ${{ github.event.inputs.new_llvm_ver }}
-            sh ./modify-compiler-rt-pkgbuild.sh ${{ github.event.inputs.new_llvm_ver }}
-            sh ./modify-clang-pkgbuild.sh ${{ github.event.inputs.new_llvm_ver }}
-            sh ./modify-lld-pkgbuild.sh ${{ github.event.inputs.new_llvm_ver }}
+            sh ./modify-llvm-pkgbuild.sh ${NEWVERSION}
+            sh ./modify-compiler-rt-pkgbuild.sh ${NEWVERSION}
+            sh ./modify-clang-pkgbuild.sh ${NEWVERSION}
+            sh ./modify-lld-pkgbuild.sh ${NEWVERSION}
           fi
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
