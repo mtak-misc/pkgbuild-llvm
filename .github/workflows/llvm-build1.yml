@@ -20,14 +20,14 @@ jobs:
           swap-size-gb: 13
       - name: Checkout repo
         uses: actions/checkout@v4
-      - name: Cleanup
-        run: |
-          sh ./cleanup.sh
+#      - name: Cleanup
+#        run: |
+#          sh ./cleanup.sh
       - name: Prepare for makepkg
         run: |
           echo "USERID=$(id -u $(whoami))" >> $GITHUB_ENV
           gh run download -n llvm-gcc
-          NEWVERSION=$(ls -1 llvm-*.zst | cut -d- -f2)
+          NEWVERSION=$(ls -1 llvm-*.zst | head -n 1 | cut -d- -f2)
           ls -1 llvm-*.zst
           echo 'NEWVEISION:'
           echo $NEWVERSION
