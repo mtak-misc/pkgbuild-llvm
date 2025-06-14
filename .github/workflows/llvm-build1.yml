@@ -27,6 +27,7 @@ jobs:
         run: |
           echo "USERID=$(id -u $(whoami))" >> $GITHUB_ENV
           gh run download -n llvm-gcc
+          ls -l
           NEWVERSION=$(ls -1 llvm-*.zst | cut -d- -f2)
           git clone --depth 1 https://gitlab.archlinux.org/archlinux/packaging/packages/llvm.git
           git clone --depth 1 https://gitlab.archlinux.org/archlinux/packaging/packages/compiler-rt.git
