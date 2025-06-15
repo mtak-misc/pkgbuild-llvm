@@ -26,7 +26,7 @@ jobs:
       - name: Prepare for makepkg
         run: |
           echo "USERID=$(id -u $(whoami))" >> $GITHUB_ENV
-          gh run download -n llvm
+          gh run download -n llvm-second
           NEWVERSION=$(ls -1 llvm-*.zst | head -n 1 | cut -d- -f2)
           git clone --depth 1 https://gitlab.archlinux.org/archlinux/packaging/packages/llvm.git
           git clone --depth 1 https://gitlab.archlinux.org/archlinux/packaging/packages/compiler-rt.git
@@ -51,5 +51,5 @@ jobs:
       - name: Upload packages
         uses: actions/upload-artifact@v4
         with:
-          name: llvm
+          name: llvm-final
           path: ${{ github.workspace }}/*.pkg.tar.zst
