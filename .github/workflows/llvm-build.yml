@@ -9,7 +9,7 @@ on:
         description: "New LLVM version"
 jobs:
   build:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     steps:
       - name: Set Swap Space
         uses: pierotofy/set-swap-space@master
