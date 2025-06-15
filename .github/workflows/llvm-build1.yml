@@ -26,7 +26,7 @@ jobs:
       - name: Prepare for makepkg
         run: |
           echo "USERID=$(id -u $(whoami))" >> $GITHUB_ENV
-          gh run download -n llvm-gcc
+          gh run download -n llvm-first
           NEWVERSION=$(ls -1 llvm-*.zst | head -n 1 | cut -d- -f2)
           git clone --depth 1 https://gitlab.archlinux.org/archlinux/packaging/packages/llvm.git
           git clone --depth 1 https://gitlab.archlinux.org/archlinux/packaging/packages/compiler-rt.git
