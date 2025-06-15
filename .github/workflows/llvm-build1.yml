@@ -4,6 +4,7 @@ on:
   workflow_run:
     workflows:
       - gcc-build
+      - llvm-build0
     branches:
       - main
     types: 
