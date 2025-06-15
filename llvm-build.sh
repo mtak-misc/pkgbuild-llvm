@@ -8,7 +8,6 @@ pacman --noconfirm -S llvm compiler-rt clang lld
 export CC=clang
 export CXX=clang++
 
-
 cd ./llvm ; su builder -c "yes '' | MAKEFLAGS=\"-j $(nproc)\" makepkg --noconfirm --nocheck --skippgpcheck -sc"
 rm llvm-debug*.zst
 pacman -U --noconfirm llvm-*.zst
