@@ -1,4 +1,4 @@
-name: llvm-build
+name: llvm-build0
 
 on:
   workflow_dispatch:
@@ -46,5 +46,5 @@ jobs:
       - name: Upload packages
         uses: actions/upload-artifact@v4
         with:
-          name: llvm
+          name: llvm-first
           path: ${{ github.workspace }}/*.pkg.tar.zst
