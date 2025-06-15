@@ -51,5 +51,5 @@ jobs:
       - name: Upload packages
         uses: actions/upload-artifact@v4
         with:
-          name: llvm-final
+          name: llvm
           path: ${{ github.workspace }}/*.pkg.tar.zst
