@@ -24,7 +24,6 @@ jobs:
         run: |
           git clone --depth 1 https://gitlab.archlinux.org/archlinux/packaging/packages/llvm.git
           git clone --depth 1 https://gitlab.archlinux.org/archlinux/packaging/packages/compiler-rt.git
-          cat ./compiler-rt/PKGBUILD
           git clone --depth 1 https://gitlab.archlinux.org/archlinux/packaging/packages/clang.git
           git clone --depth 1 https://gitlab.archlinux.org/archlinux/packaging/packages/lld.git
           PKGVERSION=$(grep "pkgver=" llvm/PKGBUILD)
