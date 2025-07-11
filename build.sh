@@ -9,7 +9,8 @@ if [ $? -ne 0 ]; then
   echo 'Unexpected error.'
 elif [ -z "$RES" ]; then
   echo 'No packages.'
-  pacman --noconfirm -S llvm compiler-rt clang lld
+  #pacman --noconfirm -S llvm compiler-rt clang lld
+  pacman --noconfirm -S lld
 else
   pacman --noconfirm -U *.pkg.tar.zst
 fi
@@ -29,7 +30,6 @@ export CXX=clang++
 #mv lld-*.zst ..
 #cd ..
 
-pacman --noconfirm -S cmake ninja lib32-llvm-libs
 cd ./compiler-rt ; su builder -c "yes '' | MAKEFLAGS=\"-j $(nproc)\" makepkg --noconfirm --nocheck --skippgpcheck -sc"
 rm compiler-rt-debug*.zst
 pacman -U --noconfirm compiler-rt-*.zst
