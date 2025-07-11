@@ -29,7 +29,7 @@ export CXX=clang++
 #mv lld-*.zst ..
 #cd ..
 
-#cd ./compiler-rt ; su builder -c "yes '' | MAKEFLAGS=\"-j $(nproc)\" makepkg --noconfirm --nocheck --skippgpcheck -sc"
+cd ./compiler-rt ; su builder -c "yes '' | MAKEFLAGS=\"-j $(nproc)\" makepkg --noconfirm --nocheck --skippgpcheck -sc"
 #rm compiler-rt-debug*.zst
 #pacman -U --noconfirm compiler-rt-*.zst
 #mv compiler-rt-*.zst ..
