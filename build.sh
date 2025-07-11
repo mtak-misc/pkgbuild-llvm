@@ -9,8 +9,7 @@ if [ $? -ne 0 ]; then
   echo 'Unexpected error.'
 elif [ -z "$RES" ]; then
   echo 'No packages.'
-  #pacman --noconfirm -S llvm compiler-rt clang lld
-  pacman --noconfirm -S compiler-rt
+  pacman --noconfirm -S llvm compiler-rt clang lld
 else
   pacman --noconfirm -U *.pkg.tar.zst
 fi
