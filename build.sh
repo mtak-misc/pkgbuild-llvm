@@ -10,7 +10,7 @@ if [ $? -ne 0 ]; then
 elif [ -z "$RES" ]; then
   echo 'No packages.'
   #pacman --noconfirm -S llvm compiler-rt clang lld
-  pacman --noconfirm -S lld
+  pacman --noconfirm -S compiler-rt
 else
   pacman --noconfirm -U *.pkg.tar.zst
 fi
