@@ -17,9 +17,9 @@ jobs:
           swap-size-gb: 13
       - name: Checkount repo
         uses: actions/checkout@v4
-      - name: Cleanup
-        run: |
-          sh ./cleanup.sh
+#      - name: Cleanup
+#        run: |
+#          sh ./cleanup.sh
       - name: Prepare for makepkg
         run: |
           git clone --depth 1 https://gitlab.archlinux.org/archlinux/packaging/packages/llvm.git
