@@ -12,12 +12,12 @@ elif [ -z "$RES" ]; then
 #  pacman --noconfirm -S llvm compiler-rt clang lld
 else
   pacman --noconfirm -U *.pkg.tar.zst
-  export CC=clang
-  export CXX=clang++
+#  export CC=clang
+#  export CXX=clang++
 fi
 
-#export CC=clang
-#export CXX=clang++
+export CC=clang
+export CXX=clang++
 
 cd ./llvm ; su builder -c "yes '' | MAKEFLAGS=\"-j $(nproc)\" makepkg --noconfirm --nocheck --skippgpcheck -sc"
 rm llvm-debug*.zst
