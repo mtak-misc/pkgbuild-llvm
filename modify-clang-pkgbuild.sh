@@ -4,7 +4,7 @@ PKGVERSION=$(grep "pkgver=" clang/PKGBUILD)
 OLDVERSION="${PKGVERSION#pkgver=}"
 PKGREL=$(grep "pkgrel=" clang/PKGBUILD)
 
-#sed -i 's/gcc/clang/g' clang/PKGBUILD
+sed -i 's/gcc/clang/g' clang/PKGBUILD
 echo "sed -i 's/${OLDVERSION}/${NEWVERSION}/g' clang/PKGBUILD" | bash
 echo "sed -i 's/${PKGREL}/pkgrel=1/g' clang/PKGBUILD" | bash
 grep -oP "'\K[a-f0-9]{64}(?='.*)" clang/PKGBUILD | awk '{print "sed -i \x27s/"$1"/SKIP/g\x27 clang/PKGBUILD"}' | bash
