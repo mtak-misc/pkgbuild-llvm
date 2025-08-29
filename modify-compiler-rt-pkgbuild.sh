@@ -4,7 +4,7 @@ PKGVERSION=$(grep "pkgver=" compiler-rt/PKGBUILD)
 OLDVERSION="${PKGVERSION#pkgver=}"
 PKGREL=$(grep "pkgrel=" compiler-rt/PKGBUILD)
 
-sed -i "s/'gcc-libs/'llvm-libs/g" compiler-rt/PKGBUILD
+#sed -i "s/'gcc-libs/'llvm-libs/g" compiler-rt/PKGBUILD
 sed -i '/makedepends_x86_64/d' compiler-rt/PKGBUILD
 echo "sed -i 's/${OLDVERSION}/${NEWVERSION}/g' compiler-rt/PKGBUILD" | bash
 echo "sed -i 's/${PKGREL}/pkgrel=1/g' compiler-rt/PKGBUILD" | bash
