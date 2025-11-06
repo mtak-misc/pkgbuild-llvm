@@ -37,7 +37,7 @@ jobs:
             IFS='.' read -ra old_parts <<< "$OLDVERSION"
             IFS='.' read -ra new_parts <<< "${{ github.event.inputs.new_llvm_ver }}"
 
-            if [ "${old_parts[2]}" = "${new_parts[2]}" ]; then
+            if [ "${old_parts[1]}" = "${new_parts[1]}" ]; then
               LLMBUILD="true"
             fi
           fi
