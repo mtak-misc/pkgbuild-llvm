@@ -1,5 +1,6 @@
 #!/bin/sh
-USERID=$1
+USERID=$1 
+LLVMBUILD=$2
 
 pacman -Syu --noconfirm base-devel sudo git python-myst-parser
 useradd builder -u ${USERID} -m -G wheel && echo "builder ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
