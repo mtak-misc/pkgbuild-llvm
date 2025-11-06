@@ -41,7 +41,7 @@ jobs:
             sh ./modify-lld-pkgbuild.sh ${NEWVERSION}
           fi
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }} "true"
           USERID: ''    
       - name: Build llvm
         uses: docker://archlinux:latest
