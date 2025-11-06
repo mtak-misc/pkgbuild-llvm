@@ -28,12 +28,20 @@ jobs:
           git clone --depth 1 https://gitlab.archlinux.org/archlinux/packaging/packages/lld.git
           PKGVERSION=$(grep "pkgver=" llvm/PKGBUILD)
           OLDVERSION="${PKGVERSION#pkgver=}"
+          LLMBUILD="false"
           if [ "${{ github.event.inputs.new_llvm_ver }}" != "" ] && [ ${{ github.event.inputs.new_llvm_ver }} != ${OLDVERSION} ]; then
             sh ./modify-llvm-pkgbuild.sh ${{ github.event.inputs.new_llvm_ver }}
             sh ./modify-compiler-rt-pkgbuild.sh ${{ github.event.inputs.new_llvm_ver }}
             sh ./modify-clang-pkgbuild.sh ${{ github.event.inputs.new_llvm_ver }}
             sh ./modify-lld-pkgbuild.sh ${{ github.event.inputs.new_llvm_ver }}
+            IFS='.' read -ra old_parts <<< "$OLDVERSION"
+            IFS='.' read -ra new_parts <<< "${{ github.event.inputs.new_llvm_ver }}"
+
+            if [ "${old_parts[2]}" = "${new_parts[2]}" ]; then
+              LLMBUILD="true"
+            fi
           fi
+          echo "LLMBUILD=${LLMBUILD}" >> $GITHUB_ENV
           echo "USERID=$(id -u $(whoami))" >> $GITHUB_ENV
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -42,7 +50,7 @@ jobs:
         uses: docker://archlinux:latest
         with:
           entrypoint: '/bin/sh'
-          args: ./build.sh ${{ env.USERID }}
+          args: ./build.sh ${{ env.USERID }} ${{ env.LLMBUILD }}
       - name: Upload packages
         uses: actions/upload-artifact@v4
         with:
