@@ -1,5 +1,6 @@
 #!/bin/sh
 NEWVERSION=$1
+LLVMBUILD=$2
 PKGVERSION=$(grep "pkgver=" compiler-rt/PKGBUILD)
 OLDVERSION="${PKGVERSION#pkgver=}"
 PKGREL=$(grep "pkgrel=" compiler-rt/PKGBUILD)
@@ -10,6 +11,9 @@ if [ $? -ne 0 ]; then
 elif [ -z "$RES" ]; then
   echo 'No packages.'
 #  pacman --noconfirm -S llvm compiler-rt clang lld
+  if [ ${LLVMBUILD} = "true" ]; then
+    sed -i "s/'gcc-libs/'llvm-libs/g" compiler-rt/PKGBUILD
+  fi
 else
   sed -i "s/'gcc-libs/'llvm-libs/g" compiler-rt/PKGBUILD
 fi
