@@ -10,7 +10,6 @@ if [ $? -ne 0 ]; then
   echo 'Unexpected error.'
 elif [ -z "$RES" ]; then
   echo 'No packages.'
-  echo ${LLVMBUILD}
   #
   if [ ${LLVMBUILD} = "true" ]; then
     export CC=clang
