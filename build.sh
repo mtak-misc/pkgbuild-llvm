@@ -11,9 +11,11 @@ if [ $? -ne 0 ]; then
 elif [ -z "$RES" ]; then
   echo 'No packages.'
   #
-  export CC=clang
-  export CXX=clang++
-  pacman --noconfirm -S llvm compiler-rt clang lld
+  if [ ${LLVMBUILD}="true" ]; then
+    export CC=clang
+    export CXX=clang++
+    pacman --noconfirm -S llvm compiler-rt clang lld
+  fi
 else
   pacman --noconfirm -U *.pkg.tar.zst
   export CC=clang
