@@ -38,10 +38,10 @@ jobs:
           fi
           
           if [ "${{ github.event.inputs.new_llvm_ver }}" != "" ] && [ ${{ github.event.inputs.new_llvm_ver }} != ${OLDVERSION} ]; then
-            sh ./modify-llvm-pkgbuild.sh ${{ github.event.inputs.new_llvm_ver }}
-            sh ./modify-compiler-rt-pkgbuild.sh ${{ github.event.inputs.new_llvm_ver }}
-            sh ./modify-clang-pkgbuild.sh ${{ github.event.inputs.new_llvm_ver }}
-            sh ./modify-lld-pkgbuild.sh ${{ github.event.inputs.new_llvm_ver }}
+            sh ./modify-llvm-pkgbuild.sh ${{ github.event.inputs.new_llvm_ver }} ${LLVMBUILD}
+            sh ./modify-compiler-rt-pkgbuild.sh ${{ github.event.inputs.new_llvm_ver }} ${LLVMBUILD}
+            sh ./modify-clang-pkgbuild.sh ${{ github.event.inputs.new_llvm_ver }} ${LLVMBUILD}
+            sh ./modify-lld-pkgbuild.sh ${{ github.event.inputs.new_llvm_ver }} ${LLVMBUILD}
           fi
           echo "LLVMBUILD=${LLVMBUILD}" >> $GITHUB_ENV
           echo "USERID=$(id -u $(whoami))" >> $GITHUB_ENV
