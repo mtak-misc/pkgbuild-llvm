@@ -49,6 +49,7 @@ jobs:
             sh ./modify-clang-pkgbuild.sh ${NEWVERSION} ${LLVMBUILD}
             sh ./modify-lld-pkgbuild.sh ${NEWVERSION} ${LLVMBUILD}
           fi
+          echo "USERID=$(id -u $(whoami))" >> $GITHUB_ENV
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }} "true"
           USERID: ''    
@@ -56,7 +57,7 @@ jobs:
         uses: docker://archlinux:latest
         with:
           entrypoint: '/bin/sh'
-          args: ./build.sh ${{ env.USERID }}
+          args: ./build.sh ${{ env.USERID }} "true"
       - name: Upload packages
         uses: actions/upload-artifact@v4
         with:
