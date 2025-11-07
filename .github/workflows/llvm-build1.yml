@@ -51,7 +51,7 @@ jobs:
           fi
           echo "USERID=$(id -u $(whoami))" >> $GITHUB_ENV
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }} "true"
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           USERID: ''    
       - name: Build llvm
         uses: docker://archlinux:latest
