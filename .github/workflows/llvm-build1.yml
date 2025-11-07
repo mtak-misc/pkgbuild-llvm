@@ -34,20 +34,12 @@ jobs:
           git clone --depth 1 https://gitlab.archlinux.org/archlinux/packaging/packages/lld.git
           PKGVERSION=$(grep "pkgver=" llvm/PKGBUILD)
           OLDVERSION="${PKGVERSION#pkgver=}"
-          LLVMBUILD="false"
-
-          IFS='.' read -ra old_parts <<< "$OLDVERSION"
-          IFS='.' read -ra new_parts <<< "${{ github.event.inputs.new_llvm_ver }}"
-
-          if [ "${{ github.event.inputs.new_llvm_ver }}" = "" ] || "${old_parts[1]}" = "${new_parts[1]}" ]; then
-            LLVMBUILD="true"
-          fi
           
           if [ ${NEWVERSION} != ${OLDVERSION} ]; then
-            sh ./modify-llvm-pkgbuild.sh ${NEWVERSION} ${LLVMBUILD}
-            sh ./modify-compiler-rt-pkgbuild.sh ${NEWVERSION} ${LLVMBUILD}
-            sh ./modify-clang-pkgbuild.sh ${NEWVERSION} ${LLVMBUILD}
-            sh ./modify-lld-pkgbuild.sh ${NEWVERSION} ${LLVMBUILD}
+            sh ./modify-llvm-pkgbuild.sh ${NEWVERSION} "true"
+            sh ./modify-compiler-rt-pkgbuild.sh ${NEWVERSION} "true"
+            sh ./modify-clang-pkgbuild.sh ${NEWVERSION} "true"
+            sh ./modify-lld-pkgbuild.sh ${NEWVERSION} "true"
           fi
           echo "USERID=$(id -u $(whoami))" >> $GITHUB_ENV
         env:
