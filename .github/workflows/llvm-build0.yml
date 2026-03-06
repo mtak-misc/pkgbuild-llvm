@@ -30,6 +30,8 @@ jobs:
           OLDVERSION="${PKGVERSION#pkgver=}"
           LLVMBUILD="false"
 
+          sh ./modify-llvm-source.sh
+
           IFS='.' read -ra old_parts <<< "$OLDVERSION"
           IFS='.' read -ra new_parts <<< "${{ github.event.inputs.new_llvm_ver }}"
 
