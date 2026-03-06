@@ -31,7 +31,7 @@ sed -i '/_source_base\/clang-\$pkgver\.src\.tar\.xz/,/_source_base\/third-party-
 
 sed -i 's/rename -v -- "-$pkgver.src" .*/cd llvm-project-$pkgver.src/' clang/PKGBUILD
 sed -i 's/cd clang-$pkgver.src/cd clang/' clang/PKGBUILD
-sed -i '/source=(/,/)/c\source=($_source_base/llvm-project-$pkgver.src.tar.xz{,.sig})' clang/PKGBUILD
+
 sed -i '/sha256sums=(/,/)/c\sha256sums=("SKIP"\n            "SKIP")' clang/PKGBUILD
 
 sed -i '\|\$_source_base/clang-\$pkgver\.src\.tar\.xz|d' PKGBUILD
