@@ -1,6 +1,7 @@
 sed -i 's/source=($_source_base\/llvm-$pkgver.src.tar.xz{,.sig}.*/source=($_source_base\/llvm-project-$pkgver.src.tar.xz{,.sig})/' llvm/PKGBUILD
 sed -i '/sha256sums=/,/)/c\sha256sums=(\x27SKIP\x27\n            \x27SKIP\x27)' llvm/PKGBUILD
 sed -i '\|\$_source_base/cmake-\$pkgver\.src\.tar\.xz{,\.sig}|d' llvm/PKGBUILD
+sed -i '\|\$_source_base/third-party-\$pkgver\.src\.tar\.xz{,\.sig})|d' PKGBUILD
 
 sed -i '/rename -v/d' llvm/PKGBUILD
 sed -i 's/cd llvm-$pkgver.src/cd llvm-project-$pkgver.src/g' llvm/PKGBUILD
