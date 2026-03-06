@@ -3,7 +3,7 @@ sed -i '/sha256sums=/,/)/c\sha256sums=(\x27SKIP\x27\n            \x27SKIP\x27)' 
 
 sed -i '/rename -v/d' llvm/PKGBUILD
 sed -i 's/cd llvm-$pkgver.src/cd llvm-project-$pkgver.src/g' llvm/PKGBUILD
-sed -i 's/mkdir build/mkdir -p llvm\/build/g' llvm/KGBUILD
+sed -i 's/mkdir build/mkdir -p llvm\/build/g' llvm/PKGBUILD
 sed -i 's/rm cmake\/modules/rm llvm\/cmake\/modules/g' llvm/PKGBUILD
 
 sed -i 's/cd llvm-project-$pkgver.src\/build/cd llvm-project-$pkgver.src\/llvm\/build/g' llvm/PKGBUILD
