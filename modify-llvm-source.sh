@@ -27,8 +27,6 @@ sed -i 's|cd compiler-rt-$pkgver.src/build|cd llvm-project-$pkgver.src/compiler-
 
 sed -i 's|cd compiler-rt-$pkgver.src/build|cd llvm-project-$pkgver.src/compiler-rt/build|' compiler-rt/PKGBUILD
 
-sed -i '/_source_base\/clang-\$pkgver\.src\.tar\.xz/,/_source_base\/third-party-\$pkgver\.src\.tar\.xz{,\.sig}/c\        $_source_base/llvm-project-$pkgver.src.tar.xz{,.sig}' clang/PKGBUILD
-
 sed -i 's/rename -v -- "-$pkgver.src" .*/cd llvm-project-$pkgver.src/' clang/PKGBUILD
 sed -i 's/cd clang-$pkgver.src/cd clang/' clang/PKGBUILD
 
