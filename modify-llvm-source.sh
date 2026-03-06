@@ -21,7 +21,7 @@ sed -i '\|\$_source_base/compiler-rt-\$pkgver\.src\.tar\.xz|d' compiler-rt/PKGBU
 sed -i '\|\$_source_base/cmake-\$pkgver\.src\.tar\.xz|d' compiler-rt/PKGBUILD
 sed -i '\|\$_source_base/third-party-\$pkgver\.src\.tar\.xz.*)|d' compiler-rt/PKGBUILD
 
-sed -i '/prepare() {/,/}/c\prepare() {\n  # llvm-project内の構成を利用\n  mkdir -p llvm-project-$pkgver.src/compiler-rt/build\n}' compiler-rt/PKGBUILD
+sed -i '/prepare() {/,/}/c\prepare() {\n  mkdir -p llvm-project-$pkgver.src/compiler-rt/build\n}' compiler-rt/PKGBUILD
 
 sed -i 's|cd compiler-rt-$pkgver.src/build|cd llvm-project-$pkgver.src/compiler-rt/build|' compiler-rt/PKGBUILD
 
