@@ -39,7 +39,7 @@ sed -i '\|\$_source_base/llvm-\$pkgver\.src\.tar\.xz|d' clang/PKGBUILD
 sed -i '\|\$_source_base/cmake-\$pkgver\.src\.tar\.xz|d' clang/PKGBUILD
 sed -i '\|\$_source_base/third-party-\$pkgver\.src\.tar\.xz|d' clang/PKGBUILD
 
-sed -i 's/patch -Np2 -i \.\.\//patch -Np2 -i ..\/..\//g' clang/PKGBUILD
+sed -i '/patch -Np2 -i \.\./d' clang/PKGBUILD
 
 sed -i 's/cd clang-$pkgver.src\/build/cd llvm-project-$pkgver.src\/clang\/build/g' clang/PKGBUILD
 
