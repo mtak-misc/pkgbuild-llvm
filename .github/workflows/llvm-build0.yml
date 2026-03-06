@@ -32,7 +32,7 @@ jobs:
 
           sh ./modify-llvm-source.sh
 
-          cat lld/PKGBUILD
+          cat clang/PKGBUILD
 
           IFS='.' read -ra old_parts <<< "$OLDVERSION"
           IFS='.' read -ra new_parts <<< "${{ github.event.inputs.new_llvm_ver }}"
