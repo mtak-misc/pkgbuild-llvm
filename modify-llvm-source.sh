@@ -50,6 +50,11 @@ sed -i 's|cp -a \.\.\/bindings|cp -a ../bindings|g' clang/PKGBUILD
 
 sed -i '/_source_base\/lld-\$pkgver\.src\.tar\.xz/,/_source_base\/cmake-\$pkgver\.src\.tar\.xz/c\source=($_source_base/llvm-project-$pkgver.src.tar.xz{,.sig})' lld/PKGBUILD
 
+sed -i '\|\$_source_base/lld-\$pkgver\.src\.tar\.xz|d' lld/PKGBUILD
+sed -i '\|\$_source_base/llvm-\$pkgver\.src\.tar\.xz|d' lld/PKGBUILD
+sed -i '\|\$_source_base/libunwind-\$pkgver\.src\.tar\.xz|d' lld/PKGBUILD
+sed -i '\|\$_source_base/cmake-\$pkgver\.src\.tar\.xz|d' lld/PKGBUILD
+
 sed -i '/mv libunwind/d' lld/PKGBUILD
 sed -i '/mv cmake/d' lld/PKGBUILD
 
