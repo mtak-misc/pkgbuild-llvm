@@ -35,3 +35,12 @@ sed -i 's|\$srcdir/third-party-\$pkgver\.src|$srcdir/llvm-project-$pkgver.src/th
 
 sed -i 's|install -Dm644 \.\.\/LICENSE.TXT|install -Dm644 ../LICENSE.TXT|g' clang/PKGBUILD 
 sed -i 's|cp -a \.\.\/bindings|cp -a ../bindings|g' clang/PKGBUILD
+
+sed -i '/_source_base\/lld-\$pkgver\.src\.tar\.xz/,/_source_base\/cmake-\$pkgver\.src\.tar\.xz/c\source=($_source_base/llvm-project-$pkgver.src.tar.xz{,.sig})' lld/PKGBUILD
+
+sed -i '/mv libunwind/d' lld/PKGBUILD
+sed -i '/mv cmake/d' lld/PKGBUILD
+
+sed -i 's|lld-\$pkgver\.src|llvm-project-$pkgver.src/lld|g' lld/PKGBUILD
+
+sed -i 's|llvm-\$pkgver\.src|llvm-project-$pkgver.src/llvm|g' lld/PKGBUILD
