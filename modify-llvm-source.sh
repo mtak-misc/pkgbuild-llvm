@@ -56,6 +56,7 @@ sed -i '\|\$_source_base/llvm-\$pkgver\.src\.tar\.xz|d' lld/PKGBUILD
 sed -i '\|\$_source_base/libunwind-\$pkgver\.src\.tar\.xz|d' lld/PKGBUILD
 sed -i '\|\$_source_base/cmake-\$pkgver\.src\.tar\.xz|d' lld/PKGBUILD
 
+sed -i '/sha256sums=(/,/)/c\sha256sums=("SKIP"\n            "SKIP")' lld/PKGBUILD
 sed -i '/mv libunwind/d' lld/PKGBUILD
 sed -i '/mv cmake/d' lld/PKGBUILD
 
