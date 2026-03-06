@@ -17,9 +17,9 @@ jobs:
           swap-size-gb: 13
       - name: Checkount repo
         uses: actions/checkout@v5
-      - name: Cleanup
-        run: |
-          sh ./cleanup.sh
+#      - name: Cleanup
+#        run: |
+#          sh ./cleanup.sh
       - name: Prepare for makepkg
         run: |
           git clone --depth 1 https://gitlab.archlinux.org/archlinux/packaging/packages/llvm.git
@@ -31,6 +31,8 @@ jobs:
           LLVMBUILD="false"
 
           sh ./modify-llvm-source.sh
+
+          cat compiler-rt/PKGBUILD
 
           IFS='.' read -ra old_parts <<< "$OLDVERSION"
           IFS='.' read -ra new_parts <<< "${{ github.event.inputs.new_llvm_ver }}"
@@ -50,13 +52,13 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           USERID: ''    
-      - name: Build llvm
-        uses: docker://archlinux:latest
-        with:
-          entrypoint: '/bin/sh'
-          args: ./build.sh ${{ env.USERID }} ${{ env.LLVMBUILD }}
-      - name: Upload packages
-        uses: actions/upload-artifact@v4
-        with:
-          name: llvm-first
-          path: ${{ github.workspace }}/*.pkg.tar.zst
+#      - name: Build llvm
+#        uses: docker://archlinux:latest
+#        with:
+#          entrypoint: '/bin/sh'
+#          args: ./build.sh ${{ env.USERID }} ${{ env.LLVMBUILD }}
+#      - name: Upload packages
+#        uses: actions/upload-artifact@v4
+#        with:
+#          name: llvm-first
+#          path: ${{ github.workspace }}/*.pkg.tar.zst
