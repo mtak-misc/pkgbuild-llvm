@@ -38,6 +38,8 @@ sed -i '\|\$_source_base/clang-tools-extra-\$pkgver\.src\.tar\.xz|d' clang/PKGBU
 sed -i '\|\$_source_base/llvm-\$pkgver\.src\.tar\.xz|d' clang/PKGBUILD
 sed -i '\|\$_source_base/cmake-\$pkgver\.src\.tar\.xz|d' clang/PKGBUILD
 sed -i '\|\$_source_base/third-party-\$pkgver\.src\.tar\.xz|d' clang/PKGBUILD
+sed -i '/0001-Revert-clang-driver-When-fveclib-ArmPL-flag-is-in-us\.patch/d' clang/PKGBUILD
+sed -i '/enable-fstack-protector-strong-by-default\.patch/d' clang/PKGBUILD
 
 sed -i '/patch -Np2 -i \.\./d' clang/PKGBUILD
 
