@@ -28,6 +28,12 @@ sed -i '/_source_base\/clang-\$pkgver\.src\.tar\.xz/,/_source_base\/third-party-
 sed -i 's/rename -v -- "-$pkgver.src" .*/cd llvm-project-$pkgver.src/' clang/PKGBUILD
 sed -i 's/cd clang-$pkgver.src/cd clang/' clang/PKGBUILD
 
+sed -i '\|\$_source_base/clang-\$pkgver\.src\.tar\.xz|d' PKGBUILD
+sed -i '\|\$_source_base/clang-tools-extra-\$pkgver\.src\.tar\.xz|d' clang/PKGBUILD
+sed -i '\|\$_source_base/llvm-\$pkgver\.src\.tar\.xz|d' clang/PKGBUILD
+sed -i '\|\$_source_base/cmake-\$pkgver\.src\.tar\.xz|d' clang/PKGBUILD
+sed -i '\|\$_source_base/third-party-\$pkgver\.src\.tar\.xz|d' clang/PKGBUILD
+
 sed -i 's/patch -Np2 -i \.\.\//patch -Np2 -i ..\/..\//g' clang/PKGBUILD
 
 sed -i 's/cd clang-$pkgver.src\/build/cd llvm-project-$pkgver.src\/clang\/build/g' clang/PKGBUILD
