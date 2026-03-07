@@ -30,7 +30,7 @@ sed -i 's/cd clang-$pkgver.src/cd clang/' clang/PKGBUILD
 
 sed -i '/sha256sums=(/,/)/c\sha256sums=("SKIP"\n            "SKIP")' clang/PKGBUILD
 
-sed -i '\|\$_source_base/clang-\$pkgver\.src\.tar\.xz|d' PKGBUILD
+sed -i '\|\$_source_base/clang-\$pkgver\.src\.tar\.xz|d' clang/PKGBUILD
 sed -i '\|\$_source_base/clang-tools-extra-\$pkgver\.src\.tar\.xz|d' clang/PKGBUILD
 sed -i '\|\$_source_base/llvm-\$pkgver\.src\.tar\.xz|d' clang/PKGBUILD
 sed -i '\|\$_source_base/cmake-\$pkgver\.src\.tar\.xz|d' clang/PKGBUILD
