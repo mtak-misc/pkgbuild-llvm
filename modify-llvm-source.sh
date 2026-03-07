@@ -13,19 +13,16 @@ sed -i 's/cd llvm-project-$pkgver.src\/build/cd llvm-project-$pkgver.src\/llvm\/
 sed -i 's/\.\.\/LICENSE.TXT/..\/..\/LICENSE.TXT/g' llvm/PKGBUILD
 sed -i 's/llvm-$pkgver.src\/LICENSE.TXT/llvm-project-$pkgver.src\/llvm\/LICENSE.TXT/g' llvm/PKGBUILD
 
-sed -i '/source=(/,/)/c\source=($_source_base/llvm-project-$pkgver.src.tar.xz{,.sig})' compiler-rt/PKGBUILD
+sed -i 's|source=($_source_base/compiler-rt-$pkgver.src.tar.xz{,.sig}|source=($_source_base/llvm-project-$pkgver.src.tar.xz{,.sig})|' compiler-rt/PKGBUILD
+sed -i '/cmake-$pkgver.src.tar.xz/d' compiler-rt/PKGBUILD
+sed -i '/third-party-$pkgver.src.tar.xz/d' compiler-rt/PKGBUILD
 
-sed -i "/sha256sums=(/,/)/c\sha256sums=('SKIP'\n            'SKIP')" compiler-rt/PKGBUILD
+sed -i '/^sha256sums=/,/)/c\sha256sums=('\''SKIP'\''\n            '\''SKIP'\'')' compiler-rt/PKGBUILD
 
-sed -i '\|\$_source_base/compiler-rt-\$pkgver\.src\.tar\.xz|d' compiler-rt/PKGBUILD
-sed -i '\|\$_source_base/cmake-\$pkgver\.src\.tar\.xz|d' compiler-rt/PKGBUILD
-sed -i '\|\$_source_base/third-party-\$pkgver\.src\.tar\.xz.*)|d' compiler-rt/PKGBUILD
+sed -i '/mv cmake/d' compiler-rt/PKGBUILD
+sed -i '/mv third-party/d' compiler-rt/PKGBUILD
 
-sed -i '/prepare() {/,/}/c\prepare() {\n  mkdir -p llvm-project-$pkgver.src/compiler-rt/build\n}' compiler-rt/PKGBUILD
-
-sed -i 's|cd compiler-rt-$pkgver.src/build|cd llvm-project-$pkgver.src/compiler-rt/build|' compiler-rt/PKGBUILD
-
-sed -i 's|cd compiler-rt-$pkgver.src/build|cd llvm-project-$pkgver.src/compiler-rt/build|' compiler-rt/PKGBUILD
+sed -i 's|cd compiler-rt-$pkgver.src|cd llvm-project-$pkgver.src/compiler-rt|g' compiler-rt/PKGBUILD
 
 sed -i 's|source=(\$_source_base/clang-\$pkgver\.src\.tar\.xz{,\.sig}|source=($_source_base/llvm-project-$pkgver.src.tar.xz{,.sig})|' clang/PKGBUILD
 sed -i 's/rename -v -- "-$pkgver.src" .*/cd llvm-project-$pkgver.src/' clang/PKGBUILD
