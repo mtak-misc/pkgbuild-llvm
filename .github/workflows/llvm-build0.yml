@@ -38,26 +38,23 @@ jobs:
           if [ "${{ github.event.inputs.new_llvm_ver }}" = "" ] || [ "${old_parts[1]}" = "${new_parts[1]}" ]; then
             LLVMBUILD="true"
           fi
-#          if [ "${{ github.event.inputs.new_llvm_ver }}" = "" ] || "${old_parts[1]}" = "${new_parts[1]}" ]; then
-#            LLVMBUILD="true"
-#          fi
-          
-#          if [ "${{ github.event.inputs.new_llvm_ver }}" != "" ] && [ ${{ github.event.inputs.new_llvm_ver }} != ${OLDVERSION} ]; then
-#            sh ./modify-llvm-pkgbuild.sh ${{ github.event.inputs.new_llvm_ver }} ${LLVMBUILD}
-#            sh ./modify-compiler-rt-pkgbuild.sh ${{ github.event.inputs.new_llvm_ver }} ${LLVMBUILD}
-#            sh ./modify-clang-pkgbuild.sh ${{ github.event.inputs.new_llvm_ver }} ${LLVMBUILD}
-#            sh ./modify-lld-pkgbuild.sh ${{ github.event.inputs.new_llvm_ver }} ${LLVMBUILD}
-#          fi
-#          echo "LLVMBUILD=${LLVMBUILD}" >> $GITHUB_ENV
-#          echo "USERID=$(id -u $(whoami))" >> $GITHUB_ENV
-#        env:
-#          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-#          USERID: ''    
-#      - name: Build llvm
-#        uses: docker://archlinux:latest
-#        with:
-#          entrypoint: '/bin/sh'
-#          args: ./build.sh ${{ env.USERID }} ${{ env.LLVMBUILD }}
+
+          if [ "${{ github.event.inputs.new_llvm_ver }}" != "" ] && [ ${{ github.event.inputs.new_llvm_ver }} != ${OLDVERSION} ]; then
+            sh ./modify-llvm-pkgbuild.sh ${{ github.event.inputs.new_llvm_ver }} ${LLVMBUILD}
+            sh ./modify-compiler-rt-pkgbuild.sh ${{ github.event.inputs.new_llvm_ver }} ${LLVMBUILD}
+            sh ./modify-clang-pkgbuild.sh ${{ github.event.inputs.new_llvm_ver }} ${LLVMBUILD}
+            sh ./modify-lld-pkgbuild.sh ${{ github.event.inputs.new_llvm_ver }} ${LLVMBUILD}
+          fi
+          echo "LLVMBUILD=${LLVMBUILD}" >> $GITHUB_ENV
+          echo "USERID=$(id -u $(whoami))" >> $GITHUB_ENV
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          USERID: ''    
+      - name: Build llvm
+        uses: docker://archlinux:latest
+        with:
+          entrypoint: '/bin/sh'
+          args: ./build.sh ${{ env.USERID }} ${{ env.LLVMBUILD }}
 #      - name: Upload packages
 #        uses: actions/upload-artifact@v4
 #        with:
