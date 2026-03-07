@@ -51,11 +51,11 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           USERID: ''    
-#      - name: Build llvm
-#        uses: docker://archlinux:latest
-#        with:
-#          entrypoint: '/bin/sh'
-#          args: ./build.sh ${{ env.USERID }} ${{ env.LLVMBUILD }}
+      - name: Build llvm
+        uses: docker://archlinux:latest
+        with:
+          entrypoint: '/bin/sh'
+          args: ./build.sh ${{ env.USERID }} ${{ env.LLVMBUILD }}
 #      - name: Upload packages
 #        uses: actions/upload-artifact@v4
 #        with:
