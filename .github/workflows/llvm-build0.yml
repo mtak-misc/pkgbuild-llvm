@@ -11,10 +11,10 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-#      - name: Set Swap Space
-#        uses: pierotofy/set-swap-space@master
-#        with:
-#          swap-size-gb: 13
+      - name: Set Swap Space
+        uses: pierotofy/set-swap-space@master
+        with:
+          swap-size-gb: 13
       - name: Checkount repo
         uses: actions/checkout@v5
 #      - name: Cleanup
@@ -31,8 +31,6 @@ jobs:
           LLVMBUILD="false"
 
           sh ./modify-llvm-source.sh
-
-          cat compiler-rt/PKGBUILD
 
           IFS='.' read -ra old_parts <<< "$OLDVERSION"
           IFS='.' read -ra new_parts <<< "${{ github.event.inputs.new_llvm_ver }}"
