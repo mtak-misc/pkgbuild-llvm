@@ -35,9 +35,12 @@ jobs:
           IFS='.' read -ra old_parts <<< "$OLDVERSION"
           IFS='.' read -ra new_parts <<< "${{ github.event.inputs.new_llvm_ver }}"
 
-          if [ "${{ github.event.inputs.new_llvm_ver }}" = "" ] || "${old_parts[1]}" = "${new_parts[1]}" ]; then
+          if [ "${{ github.event.inputs.new_llvm_ver }}" = "" ] || [ "${old_parts[1]}" = "${new_parts[1]}" ]; then
             LLVMBUILD="true"
           fi
+#          if [ "${{ github.event.inputs.new_llvm_ver }}" = "" ] || "${old_parts[1]}" = "${new_parts[1]}" ]; then
+#            LLVMBUILD="true"
+#          fi
           
 #          if [ "${{ github.event.inputs.new_llvm_ver }}" != "" ] && [ ${{ github.event.inputs.new_llvm_ver }} != ${OLDVERSION} ]; then
 #            sh ./modify-llvm-pkgbuild.sh ${{ github.event.inputs.new_llvm_ver }} ${LLVMBUILD}
