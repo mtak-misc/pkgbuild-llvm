@@ -31,6 +31,7 @@ jobs:
           LLVMBUILD="false"
 
           sh ./modify-llvm-source.sh
+          cat clang/PKGBUILD
 
           IFS='.' read -ra old_parts <<< "$OLDVERSION"
           IFS='.' read -ra new_parts <<< "${{ github.event.inputs.new_llvm_ver }}"
@@ -50,11 +51,11 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           USERID: ''    
-      - name: Build llvm
-        uses: docker://archlinux:latest
-        with:
-          entrypoint: '/bin/sh'
-          args: ./build.sh ${{ env.USERID }} ${{ env.LLVMBUILD }}
+#      - name: Build llvm
+#        uses: docker://archlinux:latest
+#        with:
+#          entrypoint: '/bin/sh'
+#          args: ./build.sh ${{ env.USERID }} ${{ env.LLVMBUILD }}
 #      - name: Upload packages
 #        uses: actions/upload-artifact@v4
 #        with:
