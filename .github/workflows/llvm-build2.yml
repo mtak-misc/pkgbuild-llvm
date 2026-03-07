@@ -34,8 +34,6 @@ jobs:
           git clone --depth 1 https://gitlab.archlinux.org/archlinux/packaging/packages/lld.git
           PKGVERSION=$(grep "pkgver=" llvm/PKGBUILD)
           OLDVERSION="${PKGVERSION#pkgver=}"
-
-          sh ./modify-llvm-source.sh
           
           if [ ${NEWVERSION} != ${OLDVERSION} ]; then
             sh ./modify-llvm-pkgbuild.sh ${NEWVERSION} "true"
