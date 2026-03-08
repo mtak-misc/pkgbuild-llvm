@@ -42,6 +42,7 @@ jobs:
             sh ./modify-compiler-rt-pkgbuild.sh ${{ github.event.inputs.new_llvm_ver }} ${LLVMBUILD}
             sh ./modify-clang-pkgbuild.sh ${{ github.event.inputs.new_llvm_ver }} ${LLVMBUILD}
             sh ./modify-lld-pkgbuild.sh ${{ github.event.inputs.new_llvm_ver }} ${LLVMBUILD}
+            echo "Modified PKGBUILDs."
           fi
           echo "LLVMBUILD=${LLVMBUILD}" >> $GITHUB_ENV
           echo "USERID=$(id -u $(whoami))" >> $GITHUB_ENV
