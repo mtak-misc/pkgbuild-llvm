@@ -51,7 +51,7 @@ jobs:
           entrypoint: '/bin/sh'
           args: ./build.sh ${{ env.USERID }} "true"
       - name: Upload packages
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: llvm
           path: ${{ github.workspace }}/*.pkg.tar.zst
