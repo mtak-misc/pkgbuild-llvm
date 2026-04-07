@@ -21,7 +21,7 @@ elif [ -z "$RES" ]; then
     curl -LO curl -L https://archlinux.org/packages/extra-staging/x86_64/compiler-rt/download/ -o compiler-rt-x86_64.pkg.tar.zst
     curl -LO curl -L https://archlinux.org/packages/extra-staging/x86_64/clang/download/ -o clang-x86_64.pkg.tar.zst
 
-    pacman --disable-sandbox --noconfirm -U *.pkg.tar.zst
+    pacman --noconfirm -U *.pkg.tar.zst
 
   fi
 else
