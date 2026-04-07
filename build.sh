@@ -14,14 +14,14 @@ elif [ -z "$RES" ]; then
   if [ ${LLVMBUILD} = "true" ]; then
     export CC=clang
     export CXX=clang++
-#    pacman --noconfirm -S llvm compiler-rt clang lld
-    curl -L https://archlinux.org/packages/extra-staging/x86_64/llvm/download/ -o llvm-x86_64.pkg.tar.zst
-    curl -L https://archlinux.org/packages/extra-staging/x86_64/llvm-libs/download/ -o llvm-libs-x86_64.pkg.tar.zst
-    curl -L https://archlinux.org/packages/extra-staging/x86_64/lld/download/ -o lld-x86_64.pkg.tar.zst
-    curl -L https://archlinux.org/packages/extra-staging/x86_64/compiler-rt/download/ -o compiler-rt-x86_64.pkg.tar.zst
-    curl -L https://archlinux.org/packages/extra-staging/x86_64/clang/download/ -o clang-x86_64.pkg.tar.zst
+    pacman --noconfirm -S llvm compiler-rt clang lld
+#    curl -L https://archlinux.org/packages/extra-staging/x86_64/llvm/download/ -o llvm-x86_64.pkg.tar.zst
+#    curl -L https://archlinux.org/packages/extra-staging/x86_64/llvm-libs/download/ -o llvm-libs-x86_64.pkg.tar.zst
+#    curl -L https://archlinux.org/packages/extra-staging/x86_64/lld/download/ -o lld-x86_64.pkg.tar.zst
+#    curl -L https://archlinux.org/packages/extra-staging/x86_64/compiler-rt/download/ -o compiler-rt-x86_64.pkg.tar.zst
+#    curl -L https://archlinux.org/packages/extra-staging/x86_64/clang/download/ -o clang-x86_64.pkg.tar.zst
 
-    pacman --noconfirm -U *.pkg.tar.zst
+#    pacman --noconfirm -U *.pkg.tar.zst
 
   fi
 else
