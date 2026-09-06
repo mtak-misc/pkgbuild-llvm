@@ -11,7 +11,7 @@ sed -i \
   -e "s/'91eaec904dcc7e02cd4f5007d844e0b7cb34a2cd8b9757d8a3f329383978bb20'//g" \
   llvm/PKGBUILD  
 
-sed -i 's/-DLLVM_USE_PERF=ON/-DLLVM_USE_PERF=ON -DLLVM_ENABLE_DEBUGINFOD=OFFg/' llvm/PKGBUILD
+sed -i 's/-DLLVM_USE_PERF=ON/-DLLVM_USE_PERF=ON -DLLVM_ENABLE_DEBUGINFOD=OFF/g' llvm/PKGBUILD
 cat llvm/PKGBUILD  
 
 RES=`find ./ -maxdepth 1 -name "*.pkg.tar.zst" 2>/dev/null`
