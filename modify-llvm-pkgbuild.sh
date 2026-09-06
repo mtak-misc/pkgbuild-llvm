@@ -9,8 +9,6 @@ sed -i \
 　-e '/patch -Np2 -i/d' \
   llvm/PKGBUILD
 
-cat llvm/PKGBUILD
-
 RES=`find ./ -maxdepth 1 -name "*.pkg.tar.zst" 2>/dev/null`
 if [ $? -ne 0 ]; then
   echo 'Unexpected error.'
