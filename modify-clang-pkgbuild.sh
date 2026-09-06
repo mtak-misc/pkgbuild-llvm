@@ -25,4 +25,4 @@ grep -oP "(?<=')[a-f0-9]{64}(?=')" clang/PKGBUILD | awk '{print "sed -i \x27s/"$
 
 # sed -i '/patch -Np2/d' clang/PKGBUILD 
 # sed -i '/clang-tools-extra|clang/d' clang/PKGBUILD
-sed -i 's/-DLLVM_BUILD_TESTS=ON/-DLLVM_BUILD_TESTS=OFF -DLLVM_ENABLE_DEBUGINFOD=OFF/g' clang/PKGBUILD
+sed -i 's/-DLLVM_BUILD_TESTS=ON/-DLLVM_BUILD_TESTS=OFF/g' clang/PKGBUILD
