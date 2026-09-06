@@ -2,8 +2,8 @@ name: llvm-build2
 
 on:
   workflow_run:
-    workflows:
-      - llvm-build1
+#    workflows:
+#      - llvm-build1
     branches:
       - main
     types: 
