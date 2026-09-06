@@ -13,7 +13,7 @@ sed -i \
   -e "s/'91eaec904dcc7e02cd4f5007d844e0b7cb34a2cd8b9757d8a3f329383978bb20'//g" \
   llvm/PKGBUILD  
 
-cat llvm/PKGBUID
+cat llvm/PKGBUILD  
 
 RES=`find ./ -maxdepth 1 -name "*.pkg.tar.zst" 2>/dev/null`
 if [ $? -ne 0 ]; then
