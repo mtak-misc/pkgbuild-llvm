@@ -7,8 +7,6 @@ PKGREL=$(grep "pkgrel=" llvm/PKGBUILD)
 
 sed -i \
 　-e '/patch -Np2 -i/d' \
-  -e 's/0001-SDAG-Freeze-condition-in-select-of-load-fold-208683.patch//g' \
-  -e "s/'91eaec904dcc7e02cd4f5007d844e0b7cb34a2cd8b9757d8a3f329383978bb20'//g" \
   llvm/PKGBUILD
 
 cat llvm/PKGBUILD
