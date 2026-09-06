@@ -30,7 +30,7 @@ else
   export CXX=clang++
 fi
 
-cd ./llvm ; su builder -c "yes '' | PYTHONPATH="/github/workspace/lld/src/llvm-project-23.1.0.src/llvm/utils/sphinx" MAKEFLAGS=\"-j $(nproc)\" makepkg --noconfirm --nocheck --skippgpcheck -sc"
+cd ./llvm ; su builder -c "yes '' | MAKEFLAGS=\"-j $(nproc)\" makepkg --noconfirm --nocheck --skippgpcheck -sc"
 rm llvm-debug*.zst
 pacman -U --noconfirm llvm-*.zst
 mv llvm-*.zst ..
