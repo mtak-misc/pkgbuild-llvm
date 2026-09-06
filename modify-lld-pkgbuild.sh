@@ -22,4 +22,4 @@ fi
 echo "sed -i 's/${OLDVERSION}/${NEWVERSION}/g' lld/PKGBUILD" | bash
 echo "sed -i 's/${PKGREL}/pkgrel=1/g' lld/PKGBUILD" | bash
 grep -oP "(?<=')[a-f0-9]{64}(?=')" lld/PKGBUILD | awk '{print "sed -i \x27s/"$1"/SKIP/g\x27 lld/PKGBUILD"}' | bash
-sed -i "s/-DLLVM_LINK_LLVM_DYLIB=ON/-DLLVM_LINK_LLVM_DYLIB=ON -DLLVM_ENABLE_DEBUGINFOD=OFF/g" lld/PKGBUILD
+#sed -i "s/-DLLVM_LINK_LLVM_DYLIB=ON/-DLLVM_LINK_LLVM_DYLIB=ON -DLLVM_ENABLE_DEBUGINFOD=OFF/g" lld/PKGBUILD
